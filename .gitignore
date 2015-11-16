@@ -1,0 +1,14 @@
+target
+.classpath
+.project
+.settings
+.idea
+*.ipr
+*.iml
+*.log
+*~
+quick.bat
+/tomee/tomee-plume-webapp/overlays/
+/tomee/tomee-plus-webapp/overlays/
+/arquillian/arquillian-tomee-remote/temp
+report.txt
