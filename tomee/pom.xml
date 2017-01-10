@@ -33,7 +33,7 @@
   <name>OpenEJB :: TomEE</name>
 
   <properties>
-    <version.openejb>4.7.5-TT.10-SNAPSHOT</version.openejb>
+    <version.openejb>4.7.5-TT.10</version.openejb>
   </properties>
 
   <modules>
