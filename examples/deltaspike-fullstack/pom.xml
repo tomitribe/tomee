@@ -23,7 +23,7 @@
     <version.deltaspike>1.0.1</version.deltaspike>
     <version.extval>2.0.8</version.extval>
     <version.openejb>4.7.5-TT.11-SNAPSHOT</version.openejb>
-    <version.tomee>1.7.5-TT.11-SNAPSHOT</version.tomee>
+    <tomee.version>1.7.5-TT.11-SNAPSHOT</tomee.version>
   </properties>
 
   <build>
@@ -41,7 +41,7 @@
       <plugin>
         <groupId>org.apache.openejb.maven</groupId>
         <artifactId>tomee-maven-plugin</artifactId>
-        <version>${version.tomee}</version>
+        <version>${tomee.version}</version>
         <configuration>
           <context>ROOT</context>
           <simpleLog>true</simpleLog>

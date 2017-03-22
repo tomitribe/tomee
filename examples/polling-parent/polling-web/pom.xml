@@ -77,7 +77,7 @@
       <plugin>
         <groupId>org.apache.openejb.maven</groupId>
         <artifactId>tomee-maven-plugin</artifactId>
-        <version>${version.tomee}</version>
+        <version>${tomee.version}</version>
         <configuration>
           <tomeeClassifier>jaxrs</tomeeClassifier>
         </configuration>
