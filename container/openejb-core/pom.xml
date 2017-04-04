@@ -317,6 +317,7 @@
             -enableassertions
             -Dopenejb.descriptors.output.folder=./dump/
             -Djava.endorsed.dirs=${openejb.build.endorsed}
+            -Dorg.apache.activemq.SERIALIZABLE_PACKAGES=org,java
           </argLine>
           <workingDirectory>${basedir}/target</workingDirectory>
           <systemPropertyVariables>

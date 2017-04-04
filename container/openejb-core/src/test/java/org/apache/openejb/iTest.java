@@ -66,7 +66,6 @@ public class iTest extends org.apache.openejb.test.TestSuite {
         System.setProperty("openejb.deployments.classpath.filter.descriptors", "true");
         System.setProperty("openejb.deployments.classpath.filter.systemapps", "false");
         System.setProperty("openejb.deployments.classpath.ear", "false");
-        System.setProperty("org.apache.activemq.SERIALIZABLE_PACKAGES", "*");
 
         TestManager.init(null);
         TestManager.start();
