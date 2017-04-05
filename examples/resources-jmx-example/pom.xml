@@ -26,14 +26,14 @@
   <packaging>pom</packaging>
   <version>1.1.4-SNAPSHOT</version>
   <name>OpenEJB :: Examples :: Resources/JMX Example</name>
-  
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <version.openejb>4.7.5-TT.10</version.openejb>
-    <version.tomee>1.7.5-TT.8</version.tomee>
+    <version.openejb>4.7.5-TT.11-SNAPSHOT</version.openejb>
+    <tomee.version>1.7.5-TT.11-SNAPSHOT</tomee.version>
     <version.openjpa>2.4.0</version.openjpa>
   </properties>
-  
+
   <repositories>
     <repository>
       <id>apache-m2-snapshot</id>
@@ -46,7 +46,7 @@
       <url>http://tomcat.apache.org/dev/dist/m2-repository/</url>
     </repository>
   </repositories>
-  
+
   <pluginRepositories>
     <pluginRepository>
       <id>apache-m2-snapshot</id>

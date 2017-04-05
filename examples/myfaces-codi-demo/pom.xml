@@ -45,10 +45,9 @@
   </build>
   <repositories>
     <repository>
-      <id>prime-repo</id>
-      <name>Prime Technology Maven Repository</name>
-      <url>http://repository.primefaces.org/</url>
-      <layout>default</layout>
+      <id>thirdparty</id>
+      <name>thirdparty</name>
+      <url>http://repository.tomitribe.com/content/repositories/thirdparty/</url>
     </repository>
   </repositories>
   <dependencies>
@@ -127,4 +126,3 @@
   </distributionManagement>
 
 </project>
-
