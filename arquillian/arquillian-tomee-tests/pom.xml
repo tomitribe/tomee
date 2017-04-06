@@ -14,7 +14,7 @@
   <parent>
     <artifactId>arquillian</artifactId>
     <groupId>org.apache.openejb</groupId>
-    <version>${tomee.version}</version>
+    <version>1.7.5-TT.11-SNAPSHOT</version>
   </parent>
   <artifactId>arquillian-tomee-tests</artifactId>
   <packaging>pom</packaging>
