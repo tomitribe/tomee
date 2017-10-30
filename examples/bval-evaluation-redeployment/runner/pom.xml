@@ -45,13 +45,13 @@
       <artifactId>arquillian-junit-container</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.apache.tomee.patch</groupId>
+      <groupId>org.apache.cxf</groupId>
       <artifactId>cxf-rt-frontend-jaxrs</artifactId>
     </dependency>
     <dependency>
       <groupId>org.apache.openejb</groupId>
       <artifactId>apache-tomee</artifactId>
-      <version>1.7.5-SNAPSHOT</version>
+      <version>1.7.5-TT.16</version>
       <type>zip</type>
       <classifier>jaxrs</classifier>
       <scope>test</scope>
