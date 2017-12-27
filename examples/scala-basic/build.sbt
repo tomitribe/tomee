@@ -17,7 +17,7 @@
 
 name := "scala-basic"
 
-version := "1.1.0-SNAPSHOT"
+version := "1.1.0-TT.1"
 
 scalaVersion := "2.11.1"
 
