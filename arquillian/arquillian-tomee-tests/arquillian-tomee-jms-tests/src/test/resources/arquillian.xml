@@ -31,7 +31,6 @@
         My\ Unmanaged\ DataSource.JdbcUrl = jdbc:hsqldb:mem:hsqldb
 
         openejb.classloader.forced-load=org.apache.openejb.arquillian.tests.jms
-        openejb.descriptors.output=true
       </property>
     </configuration>
   </container>

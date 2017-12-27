@@ -180,11 +180,7 @@ public class IvmContext implements Context, Serializable {
              *
              * A Reference type can also carry out dynamic resolution of references if necessary.
              */
-
-            // TODO: JRG - this needs a test
-            while (obj instanceof Reference) {
-                obj = ((Reference)obj).getObject();
-            }
+            obj = ((Reference) obj).getObject();
         } else if (obj instanceof LinkRef) {
             obj = lookup(((LinkRef) obj).getLinkName());
         }
