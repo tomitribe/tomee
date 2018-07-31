@@ -364,6 +364,18 @@
       </plugin>
 
       <plugin>
+        <groupId>org.sonatype.plugins</groupId>
+        <artifactId>nexus-staging-maven-plugin</artifactId>
+        <version>1.6.8</version>
+        <extensions>true</extensions>
+        <configuration>
+          <nexusUrl>https://repository.tomitribe.com/</nexusUrl>
+          <serverId>tomitribe.releases.https</serverId>
+          <stagingProfileId>3df297171b503b</stagingProfileId>
+        </configuration>
+      </plugin>
+
+      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
