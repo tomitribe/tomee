@@ -1,3 +1,13 @@
+= TomEE EAP 1.7.4-SP.4
+
+== Change log
+
+* TOMEE-2242 Upgrade commons-lang3 dependency from old 3.5 to current 3.8 version https://issues.apache.org/jira/browse/TOMEE-2222
+* MessageDrivenContext not injected into MDBs when using new pooling https://issues.apache.org/jira/browse/TOMEE-2237
+* Null attributes in MBeanPojoWrapper https://issues.apache.org/jira/browse/TOMEE-2245
+* Update ActiveMQ to 5.15.6 for CVE-2018-11775 https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-11775
+
+
 = TomEE EAP 1.7.4-SP.3
 
 == Change log
