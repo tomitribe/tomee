@@ -101,6 +101,26 @@ public class JaxbJavaee {
      * @throws JAXBException                if the xml cannot be marshalled into a T.
      */
     public static <T> Object unmarshalJavaee(final Class<T> type, final InputStream in) throws ParserConfigurationException, SAXException, JAXBException {
+        return unmarshalJavaee(type, in, true);
+    }
+
+    /**
+     *
+     * It unmarshals, but not using the {@link JavaeeNamespaceFilter}
+     *
+     * @param type Class of object to be read in
+     * @param in   input stream to read
+     * @param <T>  class of object to be returned
+     * @return a T read from the input stream
+     * @throws ParserConfigurationException is the SAX parser can not be configured
+     * @throws SAXException                 if there is an xml problem
+     * @throws JAXBException                if the xml cannot be marshalled into a T.
+     */
+    public static <T> Object unmarshal(final Class<T> type, final InputStream in) throws ParserConfigurationException, SAXException, JAXBException {
+        return unmarshalJavaee(type, in, false);
+    }
+
+    private static <T> Object unmarshalJavaee(final Class<T> type, final InputStream in, boolean filter) throws ParserConfigurationException, SAXException, JAXBException {
 
         final SAXParserFactory factory = SAXParserFactory.newInstance();
         factory.setNamespaceAware(true);
@@ -120,12 +140,18 @@ public class JaxbJavaee {
             }
         });
 
-        final JavaeeNamespaceFilter xmlFilter = new JavaeeNamespaceFilter(parser.getXMLReader());
-        xmlFilter.setContentHandler(unmarshaller.getUnmarshallerHandler());
+
 
         // unmarshall
-        final SAXSource source = new SAXSource(xmlFilter, new InputSource(in));
 
+        SAXSource source;
+        if (filter) {
+            final JavaeeNamespaceFilter xmlFilter = new JavaeeNamespaceFilter(parser.getXMLReader());
+            xmlFilter.setContentHandler(unmarshaller.getUnmarshallerHandler());
+            source = new SAXSource(xmlFilter, new InputSource(in));
+        } else {
+            source = new SAXSource(new InputSource(in));
+        }
         currentPublicId.set(new TreeSet<String>());
         try {
             final JAXBElement<T> element = unmarshaller.unmarshal(source, type);
