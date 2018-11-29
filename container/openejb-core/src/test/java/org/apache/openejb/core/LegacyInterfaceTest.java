@@ -35,6 +35,9 @@ import org.apache.openejb.jee.QueryMethod;
 import org.apache.openejb.jee.SingletonBean;
 import org.apache.openejb.jee.TransAttribute;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c8a734467d... TOMEE-2295 use single class imports
 import org.apache.openejb.jee.jpa.Attributes;
 import org.apache.openejb.jee.jpa.Basic;
 import org.apache.openejb.jee.jpa.Column;
@@ -42,8 +45,11 @@ import org.apache.openejb.jee.jpa.Entity;
 import org.apache.openejb.jee.jpa.EntityMappings;
 import org.apache.openejb.jee.jpa.Id;
 import org.apache.openejb.jee.jpa.NamedQuery;
+<<<<<<< HEAD
 =======
 import org.apache.openejb.jee.jpa.*;
+=======
+>>>>>>> c8a734467d... TOMEE-2295 use single class imports
 import org.apache.openejb.jee.jpa.unit.Persistence;
 import org.apache.openejb.jee.jpa.unit.PersistenceUnit;
 import org.apache.openejb.jee.jpa.unit.TransactionType;
