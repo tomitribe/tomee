@@ -24,6 +24,7 @@ import org.apache.openejb.assembler.classic.TransactionServiceInfo;
 import org.apache.openejb.config.AppModule;
 import org.apache.openejb.config.ConfigurationFactory;
 import org.apache.openejb.config.EjbModule;
+import org.apache.openejb.config.PersistenceModule;
 import org.apache.openejb.core.ivm.naming.InitContextFactory;
 import org.apache.openejb.jee.CmpField;
 import org.apache.openejb.jee.ContainerTransaction;
@@ -34,10 +35,6 @@ import org.apache.openejb.jee.Query;
 import org.apache.openejb.jee.QueryMethod;
 import org.apache.openejb.jee.SingletonBean;
 import org.apache.openejb.jee.TransAttribute;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c8a734467d... TOMEE-2295 use single class imports
 import org.apache.openejb.jee.jpa.Attributes;
 import org.apache.openejb.jee.jpa.Basic;
 import org.apache.openejb.jee.jpa.Column;
@@ -45,15 +42,10 @@ import org.apache.openejb.jee.jpa.Entity;
 import org.apache.openejb.jee.jpa.EntityMappings;
 import org.apache.openejb.jee.jpa.Id;
 import org.apache.openejb.jee.jpa.NamedQuery;
-<<<<<<< HEAD
-=======
 import org.apache.openejb.jee.jpa.*;
-=======
->>>>>>> c8a734467d... TOMEE-2295 use single class imports
 import org.apache.openejb.jee.jpa.unit.Persistence;
 import org.apache.openejb.jee.jpa.unit.PersistenceUnit;
 import org.apache.openejb.jee.jpa.unit.TransactionType;
->>>>>>> 9c585b0cf1... TOMEE-2295 test for <mapping-file> element being ignored
 import org.junit.AfterClass;
 
 import javax.ejb.CreateException;
@@ -219,8 +211,6 @@ public class LegacyInterfaceTest extends TestCase {
         assertEquals("wNAME", basicList.get(0).getColumn().getName());
     }
 
-<<<<<<< HEAD
-=======
     public void testCustomCmpMappingsWithMappingFileDefinedInPersistenceXml() throws Exception {
 
         System.setProperty(javax.naming.Context.INITIAL_CONTEXT_FACTORY, InitContextFactory.class.getName());
@@ -282,7 +272,6 @@ public class LegacyInterfaceTest extends TestCase {
         assertEquals(1, pu.getMappingFile().size());
         assertEquals("test-orm.xml", pu.getMappingFile().get(0));
     }
->>>>>>> 9c585b0cf1... TOMEE-2295 test for <mapping-file> element being ignored
 
     @LocalHome(MyLocalHome.class)
     @RemoteHome(MyRemoteHome.class)

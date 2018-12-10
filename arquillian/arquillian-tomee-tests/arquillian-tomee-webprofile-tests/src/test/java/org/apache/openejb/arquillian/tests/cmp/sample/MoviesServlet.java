@@ -50,13 +50,16 @@ public class MoviesServlet extends HttpServlet {
             moviesBusiness.doLogic();
 
             final DataSource ds = (DataSource) initial.lookup("java:comp/env/db/DataSource");
-            try (final Connection connection = ds.getConnection();
-                 final PreparedStatement ps = connection.prepareStatement(
-                         "select TABLE_NAME, COLUMN_NAME, DATA_TYPE, CHARACTER_MAXIMUM_LENGTH " +
-                                 "from INFORMATION_SCHEMA.COLUMNS where TABLE_SCHEMA = 'PUBLIC'");
+            Connection connection = null;
+            PreparedStatement ps = null;
+            ResultSet rs = null;
+            try {
+                connection = ds.getConnection();
+                ps = connection.prepareStatement(
+                        "select TABLE_NAME, COLUMN_NAME, DATA_TYPE, CHARACTER_MAXIMUM_LENGTH " +
+                                "from INFORMATION_SCHEMA.COLUMNS where TABLE_SCHEMA = 'PUBLIC'");
 
-                 final ResultSet rs = ps.executeQuery()) {
-
+                rs = ps.executeQuery();
                 final ResultSetMetaData metaData = rs.getMetaData();
                 final int columnCount = metaData.getColumnCount();
 
@@ -79,6 +82,21 @@ public class MoviesServlet extends HttpServlet {
 
                     pw.println(sb.toString());
                 }
+            } finally {
+                try {
+                    if (connection != null) {
+                        connection.close();
+                    }
+                    if (ps != null) {
+                        ps.close();
+                    }
+                    if (rs != null) {
+                        rs.close();
+                    }
+                } catch (Exception exp) {
+
+                }
+
             }
 
             pw.flush();
