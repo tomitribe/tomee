@@ -175,7 +175,7 @@ public class CmpJpaConversion implements DynamicDeployer {
             final Relationships relationships = ejbJar.getRelationships();
             if (relationships != null) {
 
-                final Map<String, Entity> entitiesByEjbName = new TreeMap<String, Entity>();
+                final Map<String, Entity> entitiesByEjbName = new TreeMap<>();
                 for (final Entity entity : cmpMappings.getEntity()) {
                     entitiesByEjbName.put(entity.getEjbName(), entity);
                 }
@@ -266,12 +266,10 @@ public class CmpJpaConversion implements DynamicDeployer {
 
     private String getPersistenceModuleId(final AppModule appModule) {
         if (appModule.getModuleId() != null) {
-            return appModule.getModuleId();
+            return appModule.getJarLocation();
         }
         for (final EjbModule ejbModule : appModule.getEjbModules()) {
-            if (ejbModule.getModuleId() != null) {
-                return ejbModule.getModuleId();
-            }
+            return ejbModule.getJarLocation();
         }
         throw new IllegalStateException("Comp must be in an ejb module, this one has none: " + appModule);
     }
@@ -345,7 +343,7 @@ public class CmpJpaConversion implements DynamicDeployer {
         final Attributes leftAttributes = leftEntity.getAttributes();
         final Map<String, RelationField> leftRelationships = leftAttributes.getRelationshipFieldMap();
 
-        final String leftFieldName;
+        String leftFieldName = null;
         boolean leftSynthetic = false;
         if (leftRole.getCmrField() != null) {
             leftFieldName = leftRole.getCmrField().getCmrFieldName();
@@ -355,7 +353,7 @@ public class CmpJpaConversion implements DynamicDeployer {
         }
         final boolean leftIsOne = leftRole.getMultiplicity() == Multiplicity.ONE;
 
-        final String rightFieldName;
+        String rightFieldName = null;
         boolean rightSynthetic = false;
         if (rightRole.getCmrField() != null) {
             rightFieldName = rightRole.getCmrField().getCmrFieldName();
@@ -371,7 +369,7 @@ public class CmpJpaConversion implements DynamicDeployer {
             //
 
             // left
-            final OneToOne leftOneToOne;
+            OneToOne leftOneToOne = null;
             leftOneToOne = new OneToOne();
             leftOneToOne.setName(leftFieldName);
             leftOneToOne.setSyntheticField(leftSynthetic);
@@ -379,7 +377,7 @@ public class CmpJpaConversion implements DynamicDeployer {
             addRelationship(leftOneToOne, leftRelationships, leftAttributes.getOneToOne());
 
             // right
-            final OneToOne rightOneToOne;
+            OneToOne rightOneToOne = null;
             rightOneToOne = new OneToOne();
             rightOneToOne.setName(rightFieldName);
             rightOneToOne.setSyntheticField(rightSynthetic);
@@ -396,7 +394,7 @@ public class CmpJpaConversion implements DynamicDeployer {
             //
 
             // left
-            final OneToMany leftOneToMany;
+            OneToMany leftOneToMany = null;
             leftOneToMany = new OneToMany();
             leftOneToMany.setName(leftFieldName);
             leftOneToMany.setSyntheticField(leftSynthetic);
@@ -405,7 +403,7 @@ public class CmpJpaConversion implements DynamicDeployer {
             addRelationship(leftOneToMany, leftRelationships, leftAttributes.getOneToMany());
 
             // right
-            final ManyToOne rightManyToOne;
+            ManyToOne rightManyToOne = null;
             rightManyToOne = new ManyToOne();
             rightManyToOne.setName(rightFieldName);
             rightManyToOne.setSyntheticField(rightSynthetic);
@@ -421,7 +419,7 @@ public class CmpJpaConversion implements DynamicDeployer {
             //
 
             // left
-            final ManyToOne leftManyToOne;
+            ManyToOne leftManyToOne = null;
             leftManyToOne = new ManyToOne();
             leftManyToOne.setName(leftFieldName);
             leftManyToOne.setSyntheticField(leftSynthetic);
@@ -429,7 +427,7 @@ public class CmpJpaConversion implements DynamicDeployer {
             addRelationship(leftManyToOne, leftRelationships, leftAttributes.getManyToOne());
 
             // right
-            final OneToMany rightOneToMany;
+            OneToMany rightOneToMany = null;
             rightOneToMany = new OneToMany();
             rightOneToMany.setName(rightFieldName);
             rightOneToMany.setSyntheticField(rightSynthetic);
@@ -446,7 +444,7 @@ public class CmpJpaConversion implements DynamicDeployer {
             //
 
             // left
-            final ManyToMany leftManyToMany;
+            ManyToMany leftManyToMany = null;
             leftManyToMany = new ManyToMany();
             leftManyToMany.setName(leftFieldName);
             leftManyToMany.setSyntheticField(leftSynthetic);
@@ -454,7 +452,7 @@ public class CmpJpaConversion implements DynamicDeployer {
             addRelationship(leftManyToMany, leftRelationships, leftAttributes.getManyToMany());
 
             // right
-            final ManyToMany rightManyToMany;
+            ManyToMany rightManyToMany = null;
             rightManyToMany = new ManyToMany();
             rightManyToMany.setName(rightFieldName);
             rightManyToMany.setSyntheticField(rightSynthetic);
@@ -469,7 +467,7 @@ public class CmpJpaConversion implements DynamicDeployer {
     }
 
     private <R extends RelationField> R addRelationship(final R relationship, final Map<String, RelationField> existing, final List<R> relationships) {
-        R r;
+        R r = null;
 
         try {
             r = (R) existing.get(relationship.getKey());
@@ -731,13 +729,13 @@ public class CmpJpaConversion implements DynamicDeployer {
      *                    primary key classes.
      */
     private Collection<MappedSuperclass> mapClass2x(final Mapping mapping, final EntityBean bean, final ClassLoader classLoader) {
-        final Set<String> allFields = new TreeSet<String>();
+        final Set<String> allFields = new TreeSet<>();
         // get an acculated set of the CMP fields. 
         for (final CmpField cmpField : bean.getCmpField()) {
             allFields.add(cmpField.getFieldName());
         }
 
-        final Class<?> beanClass;
+        Class<?> beanClass = null;
 
         try {
             beanClass = classLoader.loadClass(bean.getEjbClass());
@@ -813,7 +811,7 @@ public class CmpJpaConversion implements DynamicDeployer {
         //
         // id: the primary key
         //
-        final Set<String> primaryKeyFields = new HashSet<String>();
+        final Set<String> primaryKeyFields = new HashSet<>();
 
 
         if (bean.getPrimkeyField() != null) {
@@ -839,7 +837,7 @@ public class CmpJpaConversion implements DynamicDeployer {
             mapping.addField(field);
             primaryKeyFields.add(fieldName);
         } else if (bean.getPrimKeyClass() != null) {
-            final Class<?> pkClass;
+            Class<?> pkClass = null;
             try {
                 pkClass = classLoader.loadClass(bean.getPrimKeyClass());
                 MappedSuperclass idclass = null;
@@ -899,7 +897,7 @@ public class CmpJpaConversion implements DynamicDeployer {
         }
         // all of the fields should now be identified by type, so return a set of 
         // the field mappings 
-        return new HashSet<MappedSuperclass>(superclassByField.values());
+        return new HashSet<>(superclassByField.values());
     }
 
 
@@ -922,7 +920,7 @@ public class CmpJpaConversion implements DynamicDeployer {
         final Class ejbClass = loadClass(classLoader, ejbClassName);
 
         // build a set of all field names
-        final Set<String> allFields = new TreeSet<String>();
+        final Set<String> allFields = new TreeSet<>();
         for (final CmpField cmpField : bean.getCmpField()) {
             allFields.add(cmpField.getFieldName());
         }
@@ -932,7 +930,7 @@ public class CmpJpaConversion implements DynamicDeployer {
         //
         // id: the primary key
         //
-        final Set<String> primaryKeyFields = new HashSet<String>();
+        final Set<String> primaryKeyFields = new HashSet<>();
         if (bean.getPrimkeyField() != null) {
             final String fieldName = bean.getPrimkeyField();
             final MappedSuperclass superclass = superclassByField.get(fieldName);
@@ -953,10 +951,10 @@ public class CmpJpaConversion implements DynamicDeployer {
             // we have a primary key class.  We need to define the mappings between the key class fields 
             // and the bean's managed fields. 
 
-            final Class<?> pkClass;
+            Class<?> pkClass = null;
             try {
                 pkClass = classLoader.loadClass(bean.getPrimKeyClass());
-                MappedSuperclass superclass;
+                MappedSuperclass superclass = null;
                 MappedSuperclass idclass = null;
                 for (final Field pkField : pkClass.getFields()) {
                     final String fieldName = pkField.getName();
@@ -1003,7 +1001,7 @@ public class CmpJpaConversion implements DynamicDeployer {
 
         // all of the fields should now be identified by type, so return a set of 
         // the field mappings 
-        return new HashSet<MappedSuperclass>(superclassByField.values());
+        return new HashSet<>(superclassByField.values());
     }
 
 
@@ -1058,7 +1056,7 @@ public class CmpJpaConversion implements DynamicDeployer {
 
 
     private static Class loadClass(final ClassLoader classLoader, final String className) {
-        final Class ejbClass;
+        Class ejbClass = null;
         try {
             ejbClass = classLoader.loadClass(className);
         } catch (final ClassNotFoundException e) {
@@ -1078,8 +1076,8 @@ public class CmpJpaConversion implements DynamicDeployer {
      * @return A map of fieldname-to-defining class relationships.
      */
     private Map<String, MappedSuperclass> mapFields(Class clazz, Set<String> persistantFields) {
-        persistantFields = new TreeSet<String>(persistantFields);
-        final Map<String, MappedSuperclass> fields = new TreeMap<String, MappedSuperclass>();
+        persistantFields = new TreeSet<>(persistantFields);
+        final Map<String, MappedSuperclass> fields = new TreeMap<>();
 
         // spin down the class hierarchy until we've either processed all of the fields
         // or we've reached the Object class. 
