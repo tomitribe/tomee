@@ -32,8 +32,6 @@
         openejb.classloader.forced-load=org.apache.openejb.arquillian.tests
         openejb.ear.use-as-webcontext-base=true
         embedded = true
-<<<<<<< HEAD
-=======
 
         # try to save some permgen mem
         openejb.cdi.activated-on-ejb = false
@@ -89,7 +87,6 @@
         tomcat.util.scan.StandardJarScanFilter.jarsToScan=\
         log4j-core*.jar,log4j-taglib*.jar,log4javascript*.jar,slf4j-taglib*.jar
         openejb.descriptors.output = true
->>>>>>> 5d3efd692c... TOMEE-2295 WIP - fails with a NullPointerException which I'm trying to track down
       </property>
     </configuration>
   </container>
@@ -108,13 +105,9 @@
         openejb.classloader.forced-load=org.apache.openejb.arquillian.tests
         openejb.ear.use-as-webcontext-base=true
         embedded = false
-<<<<<<< HEAD
-=======
-
         # try to save some permgen mem
         openejb.cdi.activated-on-ejb = false
         openejb.descriptors.output = true
->>>>>>> 5d3efd692c... TOMEE-2295 WIP - fails with a NullPointerException which I'm trying to track down
       </property>
     </configuration>
   </container>
