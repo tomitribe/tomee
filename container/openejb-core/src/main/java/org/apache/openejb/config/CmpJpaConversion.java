@@ -83,7 +83,7 @@ import java.util.TreeSet;
 
 public class CmpJpaConversion implements DynamicDeployer {
 
-    private static final Logger logger = Logger.getInstance(LogCategory.OPENEJB_STARTUP_CONFIG, CmpJpaConversion.class);
+    private static final Logger LOGGER = Logger.getInstance(LogCategory.OPENEJB_STARTUP_CONFIG, CmpJpaConversion.class);
 
     private static final String CMP_PERSISTENCE_UNIT_NAME = "cmp";
 
@@ -102,31 +102,20 @@ public class CmpJpaConversion implements DynamicDeployer {
         "serialVersionUID"
     )));
 
-    public static EntityMappings readEntityMappings(final String location) {
-
-        // first try the classpath
-        EntityMappings entitymappings = null;
+    private static EntityMappings readEntityMappings(final String location, final AppModule appModule) {
 
         try {
-            final URL cpUrl = Thread.currentThread().getContextClassLoader().getResource(location);
-            entitymappings = (EntityMappings) JaxbJavaee.unmarshal(EntityMappings.class, IO.read(cpUrl));
-        } catch (Exception e) {
-            // ignore
-        }
-
-        if (entitymappings == null) {
-            // then try reading as a URL
-            try {
-                final URL url = new URL(location);
-                entitymappings = (EntityMappings) JaxbJavaee.unmarshal(EntityMappings.class, IO.read(url));
-            } catch (Exception e) {
-                logger.error("Unable to read entity mappings from " + location, e);
+            URL url = EntityMappingURLFinder.INSTANCE.apply(location, appModule);
+            if (url == null) {
+                return null;
             }
+            return (EntityMappings) JaxbJavaee.unmarshal(EntityMappings.class, IO.read(url));
+        } catch (Exception exp) {
+            LOGGER.error("Unable to read entity mappings from " + location, exp);
+            return null;
         }
 
-        return entitymappings;
     }
-
     public AppModule deploy(final AppModule appModule) throws OpenEJBException {
 
         if (!hasCmpEntities(appModule)) {
@@ -150,7 +139,7 @@ public class CmpJpaConversion implements DynamicDeployer {
         if (cmpPersistenceUnit != null) {
             if (cmpPersistenceUnit.getMappingFile() != null && cmpPersistenceUnit.getMappingFile().size() > 0) {
                 for (final String mappingFile : cmpPersistenceUnit.getMappingFile()) {
-                    final EntityMappings entityMappings = readEntityMappings(mappingFile);
+                    final EntityMappings entityMappings = readEntityMappings(mappingFile, appModule);
                     if (entityMappings != null) {
                         definedMappedClasses.addAll(entityMappings.getEntityMap().keySet());
                     }
@@ -189,11 +178,11 @@ public class CmpJpaConversion implements DynamicDeployer {
             // so there can be no misunderstandings.
             final EntityMappings userMappings = getUserEntityMappings(ejbModule);
             for (final Entity mapping : userMappings.getEntity()) {
-                logger.warning("openejb-cmp-orm.xml mapping ignored: module=" + ejbModule.getModuleId() + ":  <entity class=\"" + mapping.getClazz() + "\">");
+                LOGGER.warning("openejb-cmp-orm.xml mapping ignored: module=" + ejbModule.getModuleId() + ":  <entity class=\"" + mapping.getClazz() + "\">");
             }
 
             for (final MappedSuperclass mapping : userMappings.getMappedSuperclass()) {
-                logger.warning("openejb-cmp-orm.xml mapping ignored: module=" + ejbModule.getModuleId() + ":  <mapped-superclass class=\"" + mapping.getClazz() + "\">");
+                LOGGER.warning("openejb-cmp-orm.xml mapping ignored: module=" + ejbModule.getModuleId() + ":  <mapped-superclass class=\"" + mapping.getClazz() + "\">");
             }
         }
 

@@ -94,7 +94,7 @@ public class DeploymentLoader implements DeploymentFilterable {
     public static final Logger logger = Logger.getInstance(LogCategory.OPENEJB_STARTUP_CONFIG, "org.apache.openejb.util.resources");
     public static final String OPENEJB_ALTDD_PREFIX = "openejb.altdd.prefix";
 
-    private static final String ddDir = "META-INF/";
+    static final String META_INF = "META-INF/";
 
     public static final String EAR_WEBAPP_PERSISTENCE_XML_JARS = "ear-webapp-persistence-xml-jars";
     public static final String EAR_SCOPED_CDI_BEANS = "ear-scoped-cdi-beans_";
@@ -227,7 +227,7 @@ public class DeploymentLoader implements DeploymentFilterable {
 
                 // "persistence.xml" is done separately since we manage a list of url and not s single url
                 try {
-                    final List<URL> persistenceXmls = finder.findAll(ddDir + "persistence.xml");
+                    final List<URL> persistenceXmls = finder.findAll(META_INF + "persistence.xml");
                     if (persistenceXmls.size() >= 1) {
                         final URL old = (URL) otherDD.get("persistence.xml");
                         if (old != null && !persistenceXmls.contains(old)) {
@@ -1622,13 +1622,13 @@ public class DeploymentLoader implements DeploymentFilterable {
 
     public static Map<String, URL> mapDescriptors(final ResourceFinder finder)
         throws IOException {
-        final Map<String, URL> map = finder.getResourcesMap(ddDir);
+        final Map<String, URL> map = finder.getResourcesMap(META_INF);
 
         if (map.size() == 0) {
 
             for (final String descriptor : KNOWN_DESCRIPTORS) {
 
-                final URL url = finder.getResource(ddDir + descriptor);
+                final URL url = finder.getResource(META_INF + descriptor);
                 if (url != null) {
                     map.put(descriptor, url);
                 }
@@ -1724,7 +1724,7 @@ public class DeploymentLoader implements DeploymentFilterable {
             }
 
             // handle some few file(s) which can be in META-INF too
-            final File webAppDdDir = new File(webInfDir, "classes/" + ddDir);
+            final File webAppDdDir = new File(webInfDir, "classes/" + META_INF);
             if (webAppDdDir.isDirectory()) {
                 final File[] files = webAppDdDir.listFiles();
                 if (files != null) {
