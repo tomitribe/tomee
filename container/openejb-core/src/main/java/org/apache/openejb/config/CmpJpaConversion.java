@@ -105,7 +105,7 @@ public class CmpJpaConversion implements DynamicDeployer {
     private static EntityMappings readEntityMappings(final String location, final AppModule appModule) {
 
         try {
-            LOGGER.info("Reading an entity map from localtion: " + location);
+            LOGGER.info("Reading an entity map from location: " + location);
 
             URL url = EntityMappingURLFinder.INSTANCE.apply(location, appModule);
             if (url == null) {
@@ -143,7 +143,9 @@ public class CmpJpaConversion implements DynamicDeployer {
                 for (final String mappingFile : cmpPersistenceUnit.getMappingFile()) {
                     final EntityMappings entityMappings = readEntityMappings(mappingFile, appModule);
                     if (entityMappings != null) {
-                        definedMappedClasses.addAll(entityMappings.getEntityMap().keySet());
+                        Set<String> classes = entityMappings.getEntityMap().keySet();
+                        LOGGER.info(String.format("The loaded class loaded from the mappingFile %s : %s", mappingFile, classes));
+                        definedMappedClasses.addAll(classes);
                     }
                 }
             }
