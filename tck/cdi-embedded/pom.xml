@@ -25,7 +25,7 @@
   <artifactId>cdi-embedded</artifactId>
   <packaging>jar</packaging>
   <name>OpenEJB :: TCK :: CDI Embedded</name>
-  <version>1.7.2-SP.2</version>
+  <version>1.7.2-SP.3</version>
 
   <dependencies>
     <dependency>
