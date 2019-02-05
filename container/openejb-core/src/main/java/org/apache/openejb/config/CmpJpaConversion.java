@@ -105,6 +105,8 @@ public class CmpJpaConversion implements DynamicDeployer {
     private static EntityMappings readEntityMappings(final String location, final AppModule appModule) {
 
         try {
+            LOGGER.info("Reading an entity map from location: " + location);
+
             URL url = EntityMappingURLFinder.INSTANCE.apply(location, appModule);
             if (url == null) {
                 return null;
@@ -141,12 +143,15 @@ public class CmpJpaConversion implements DynamicDeployer {
                 for (final String mappingFile : cmpPersistenceUnit.getMappingFile()) {
                     final EntityMappings entityMappings = readEntityMappings(mappingFile, appModule);
                     if (entityMappings != null) {
-                        definedMappedClasses.addAll(entityMappings.getEntityMap().keySet());
+                        Set<String> classes = entityMappings.getEntityMap().keySet();
+                        LOGGER.info(String.format("The loaded class loaded from the mappingFile %s : %s", mappingFile, classes));
+                        definedMappedClasses.addAll(classes);
                     }
                 }
             }
         }
 
+        LOGGER.info("Scanned definedMappedClasses: " + definedMappedClasses.toString());
         // we process this one jar-file at a time...each contributing to the 
         // app mapping data 
         for (final EjbModule ejbModule : appModule.getEjbModules()) {
@@ -158,6 +163,12 @@ public class CmpJpaConversion implements DynamicDeployer {
                     processEntityBean(ejbModule, definedMappedClasses, cmpMappings, (EntityBean) enterpriseBean);
                 }
             }
+
+            StringBuilder classes = new StringBuilder();
+            for (Entity entity : cmpMappings.getEntity()) {
+                classes.append(entity.getClazz()).append(',');
+            }
+            LOGGER.info("Processed the entity bean: " + classes.toString());
 
             // if there are relationships defined in this jar, get a list of the defined
             // entities and process the relationship maps. 
@@ -187,11 +198,13 @@ public class CmpJpaConversion implements DynamicDeployer {
         }
 
         if (!cmpMappings.getEntity().isEmpty()) {
+            LOGGER.info("CMP is not empty creating CMP from App Module");
             final PersistenceUnit persistenceUnit = getCmpPersistenceUnit(appModule);
 
             persistenceUnit.getMappingFile().add("META-INF/openejb-cmp-generated-orm.xml");
             for (final Entity entity : cmpMappings.getEntity()) {
                 if (! persistenceUnit.getClazz().contains(entity.getClazz())) {
+                    LOGGER.info("Adds a new class the Persistence Unit, class: " + entity.getClazz());
                     persistenceUnit.getClazz().add(entity.getClazz());
                 }
             }
