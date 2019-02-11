@@ -33,7 +33,6 @@ enum EntityMappingURLFinder implements BiFunction<String, AppModule, URL> {
 
     INSTANCE;
 
-    private static final Logger LOGGER = Logger.getInstance(LogCategory.OPENEJB_STARTUP_CONFIG, EntityMappingURLFinder.class);
 
     private final DefaultFinder defaultFinder = new DefaultFinder();
 
@@ -71,7 +70,6 @@ enum EntityMappingURLFinder implements BiFunction<String, AppModule, URL> {
             try {
                 return new URL(location);
             } catch (MalformedURLException e) {
-                LOGGER.info("Unable to using URL: " + location);
                 return null;
             }
         }
@@ -103,7 +101,6 @@ enum EntityMappingURLFinder implements BiFunction<String, AppModule, URL> {
                 String fileName = location.replace(DeploymentLoader.META_INF, "");
                 return map.get(fileName);
             } catch (Exception ex) {
-                LOGGER.error("Unable to read entity mappings from " + location, ex);
                 return null;
             }
         }
