@@ -108,6 +108,7 @@ public class CmpJpaConversion implements DynamicDeployer {
             LOGGER.info("Reading an entity map from location: " + location);
 
             URL url = EntityMappingURLFinder.INSTANCE.apply(location, appModule);
+            LOGGER.info("the URL found: " + url);
             if (url == null) {
                 return null;
             }
@@ -164,11 +165,6 @@ public class CmpJpaConversion implements DynamicDeployer {
                 }
             }
 
-            StringBuilder classes = new StringBuilder();
-            for (Entity entity : cmpMappings.getEntity()) {
-                classes.append(entity.getClazz()).append(',');
-            }
-            LOGGER.info("Processed the entity bean: " + classes.toString());
 
             // if there are relationships defined in this jar, get a list of the defined
             // entities and process the relationship maps. 
@@ -217,6 +213,13 @@ public class CmpJpaConversion implements DynamicDeployer {
                 entity.setAttributes(null);
             }
         }
+
+        StringBuilder classes = new StringBuilder();
+        for (Entity entity : cmpMappings.getEntity()) {
+            classes.append(entity.getClazz()).append(',');
+        }
+        LOGGER.info("Processed the entity bean: " + classes.toString());
+
         return appModule;
     }
 
@@ -248,6 +251,8 @@ public class CmpJpaConversion implements DynamicDeployer {
             final PersistenceModule persistenceModule = new PersistenceModule(appModule, getPersistenceModuleId(appModule), persistence);
             appModule.addPersistenceModule(persistenceModule);
         }
+
+        LOGGER.info("The persistence unit module from CMP: " + persistenceUnit.getClazz());
         return persistenceUnit;
     }
 
