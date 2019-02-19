@@ -16,6 +16,8 @@
  */
 package org.apache.openejb.client;
 
+import org.apache.openejb.client.corba.Corbas;
+import org.apache.openejb.client.corba.InstanceOf;
 import org.apache.openejb.client.serializer.EJBDSerializer;
 import org.apache.openejb.client.serializer.SerializationWrapper;
 import org.omg.CORBA.ORB;
@@ -23,13 +25,10 @@ import org.omg.CORBA.ORB;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.rmi.CORBA.Stub;
-import javax.rmi.CORBA.Tie;
-import javax.rmi.PortableRemoteObject;
 import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
 import java.lang.reflect.Method;
-import java.rmi.Remote;
 import java.util.Arrays;
 
 public class EJBRequest implements ClusterableRequest {
@@ -556,14 +555,8 @@ public class EJBRequest implements ClusterableRequest {
                         throw new IOException("Unkown primitive type: " + clazz);
                     }
                 } else {
-                    if (obj instanceof PortableRemoteObject && obj instanceof Remote) {
-                        final Tie tie = javax.rmi.CORBA.Util.getTie((Remote) obj);
-                        if (tie == null) {
-                            throw new IOException("Unable to serialize PortableRemoteObject; object has not been exported: " + obj);
-                        }
-                        final ORB orb = getORB();
-                        tie.orb(orb);
-                        obj = PortableRemoteObject.toStub((Remote) obj);
+                    if (InstanceOf.isRemote(obj)) {
+                        obj = Corbas.toStub(obj);
                     }
                     out.write(OBJECT);
                     out.writeObject(clazz);

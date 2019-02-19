@@ -84,7 +84,7 @@ public final class Extensions {
     public static void addExtensions(final ClassLoader loader, final Collection<String> classes) {
         for (final String clazz : classes) {
             try {
-                final Object object = loader.loadClass(clazz).newInstance();
+                final Object object = loader.loadClass(clazz).getConstructor().newInstance();
                 SystemInstance.get().addObserver(object);
             } catch (final Throwable t) {
                 LOGGER.error("Extension construction failed" + clazz, t);
@@ -95,7 +95,7 @@ public final class Extensions {
     public static void addExtensions(final Collection<Class<?>> classes) {
         for (final Class<?> clazz : classes) {
             try {
-                final Object object = clazz.newInstance();
+                final Object object = clazz.getConstructor().newInstance();
                 SystemInstance.get().addObserver(object);
             } catch (final Throwable t) {
                 LOGGER.error("Extension construction failed" + clazz.getName(), t);
@@ -105,10 +105,7 @@ public final class Extensions {
 
     public static class Finder extends ResourceFinder {
         public Finder(final String path, final boolean useLoader, final URL... urls) {
-            super(path, urls);
-            if (!useLoader && (urls == null || urls.length == 0)) {
-                Reflections.set(this, "urls", new URL[0]);
-            }
+            super(path, !useLoader && urls == null ? new URL[0] : urls);
         }
 
         // ensure we support multiple class by file

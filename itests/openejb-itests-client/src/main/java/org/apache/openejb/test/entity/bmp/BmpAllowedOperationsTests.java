@@ -144,7 +144,7 @@ public class BmpAllowedOperationsTests extends BasicBmpTestClient{
     protected void setUp() throws Exception{
         super.setUp();
         final Object obj = initialContext.lookup("client/tests/entity/bmp/allowed_operations/EntityHome");
-        ejbHome = (BasicBmpHome) PortableRemoteObject.narrow( obj, BasicBmpHome.class);
+        ejbHome = (BasicBmpHome) obj;
         ejbObject = ejbHome.createObject("Fourth Bean");
         ejbHandle = ejbObject.getHandle();
         /* These tests will only work if the specified
