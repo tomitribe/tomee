@@ -5,9 +5,9 @@
  * The ASF licenses this file to You under the Apache License, Version 2.0
  * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -16,8 +16,8 @@
  */
 package org.apache.openejb.client;
 
-
 import org.apache.openejb.client.corba.Corbas;
+import org.apache.openejb.client.corba.InstanceOf;
 import org.apache.openejb.client.serializer.EJBDSerializer;
 import org.apache.openejb.client.serializer.SerializationWrapper;
 
@@ -28,7 +28,6 @@ import java.lang.reflect.Method;
 import java.util.Arrays;
 
 public class EJBRequest implements ClusterableRequest {
-
 
     private static final long serialVersionUID = -2075915633178128028L;
     private transient RequestMethodCode requestMethod;
@@ -552,7 +551,9 @@ public class EJBRequest implements ClusterableRequest {
                         throw new IOException("Unkown primitive type: " + clazz);
                     }
                 } else {
-                    obj = Corbas.toStub(obj);
+                    if (InstanceOf.isRemote(obj)) {
+                        obj = Corbas.toStub(obj);
+                    }
                     out.write(OBJECT);
                     out.writeObject(clazz);
                     out.writeObject(obj);
@@ -562,8 +563,6 @@ public class EJBRequest implements ClusterableRequest {
 
         static final Class[] noArgsC = new Class[0];
         static final Object[] noArgsO = new Object[0];
-
-
 
         /**
          * Changes to this method must observe the optional {@link #metaData} version
@@ -629,7 +628,12 @@ public class EJBRequest implements ClusterableRequest {
 
                     case OBJECT:
                         clazz = (Class) in.readObject();
-                        obj = Corbas.connect(in.readObject());
+                        final Object read = in.readObject();
+                        if (InstanceOf.isStub(read)) {
+                            obj = Corbas.connect(read);
+                        } else {
+                            obj = read;
+                        }
                         break;
                     default:
                         throw new IOException("Unkown data type: " + type);
@@ -674,4 +678,3 @@ public class EJBRequest implements ClusterableRequest {
         }
     }
 }
-
