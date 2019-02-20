@@ -534,8 +534,12 @@ public class JNDIContext implements InitialContextFactory, Context {
         }
     }
 
-    private ORB getDefaultOrb() {
-        return ORB.init();
+    private Object getDefaultOrb() {
+        try {
+            return Thread.currentThread().getContextClassLoader().loadClass("org.omg.CORBA.ORB").getMethod("init").invoke(null);
+        } catch (final Exception e) {
+            throw new IllegalStateException("No CORBA available", e);
+        }
     }
 
     @Override
