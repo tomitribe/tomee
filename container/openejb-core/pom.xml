@@ -496,6 +496,10 @@
       <groupId>com.sun.corba</groupId>
       <artifactId>orb</artifactId>
     </dependency>
+    <dependency>
+      <groupId>geronimo-spec</groupId>
+      <artifactId>geronimo-spec-corba</artifactId>
+    </dependency>
 
     <!-- ActiveMQ -->
     <dependency>
