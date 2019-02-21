@@ -70,7 +70,7 @@ public class BMTSingletonAllowedOperationsTests extends BasicSingletonTestClient
     protected void setUp() throws Exception{
         super.setUp();
         final Object obj = initialContext.lookup("client/tests/singleton/BeanManagedBasicSingletonHome");
-        ejbHome = (BasicSingletonHome)javax.rmi.PortableRemoteObject.narrow( obj, BasicSingletonHome.class);
+        ejbHome = (BasicSingletonHome)obj;
         ejbObject = ejbHome.createObject();
         ejbHandle = ejbObject.getHandle();
         timerSync = (TimerSync) initialContext.lookup("TimerSyncBeanBusinessRemote");

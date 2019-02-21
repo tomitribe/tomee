@@ -35,7 +35,7 @@ public class StatelessContextLookupTests extends StatelessTestClient{
     protected void setUp() throws Exception{
         super.setUp();
         final Object obj = initialContext.lookup("client/tests/stateless/ContextLookupStatelessBean");
-        ejbHome = (EncStatelessHome)javax.rmi.PortableRemoteObject.narrow( obj, EncStatelessHome.class);
+        ejbHome = (EncStatelessHome)obj;
         ejbObject = ejbHome.create();
 
         /*[2] Create database table */

@@ -519,7 +519,7 @@ public class StatelessRmiIiopTests extends StatelessTestClient{
     public void test35_returnEJBHome() {
         try{
             final Object obj = initialContext.lookup("client/tests/stateless/EncBean");
-            final EncStatelessHome expected = (EncStatelessHome)javax.rmi.PortableRemoteObject.narrow( obj, EncStatelessHome.class);
+            final EncStatelessHome expected = (EncStatelessHome)obj;
             assertNotNull("The EJBHome returned from JNDI is null", expected);
 
             final EncStatelessHome actual = (EncStatelessHome)PortableRemoteObject.narrow( ejbObject.returnEJBHome(expected), EncStatelessHome.class);
@@ -543,7 +543,7 @@ public class StatelessRmiIiopTests extends StatelessTestClient{
     public void test37_returnNestedEJBHome() {
         try{
             final Object obj = initialContext.lookup("client/tests/stateless/EncBean");
-            final EncStatelessHome expected = (EncStatelessHome)javax.rmi.PortableRemoteObject.narrow( obj, EncStatelessHome.class);
+            final EncStatelessHome expected = (EncStatelessHome)obj;
             assertNotNull("The EJBHome returned from JNDI is null", expected);
 
             final ObjectGraph graph = ejbObject.returnObjectGraph(new ObjectGraph(expected));
@@ -574,7 +574,7 @@ public class StatelessRmiIiopTests extends StatelessTestClient{
             final EncStatelessHome[] expected = new EncStatelessHome[3];
             for (int i=0; i < expected.length; i++){
                 final Object obj = initialContext.lookup("client/tests/stateless/EncBean");
-                expected[i] = (EncStatelessHome)javax.rmi.PortableRemoteObject.narrow( obj, EncStatelessHome.class);
+                expected[i] = (EncStatelessHome)obj;
                 assertNotNull("The EJBHome returned from JNDI is null", expected[i]);
             }
 
@@ -595,7 +595,7 @@ public class StatelessRmiIiopTests extends StatelessTestClient{
     public void test40_returnEJBObject() {
         try{
             final Object obj = initialContext.lookup("client/tests/stateless/EncBean");
-            final EncStatelessHome home = (EncStatelessHome)javax.rmi.PortableRemoteObject.narrow( obj, EncStatelessHome.class);
+            final EncStatelessHome home = (EncStatelessHome)obj;
             assertNotNull("The EJBHome returned from JNDI is null", home);
 
             final EncStatelessObject expected = home.create();
@@ -623,7 +623,7 @@ public class StatelessRmiIiopTests extends StatelessTestClient{
     public void test42_returnNestedEJBObject() {
         try{
             final Object obj = initialContext.lookup("client/tests/stateless/EncBean");
-            final EncStatelessHome home = (EncStatelessHome)javax.rmi.PortableRemoteObject.narrow( obj, EncStatelessHome.class);
+            final EncStatelessHome home = (EncStatelessHome)obj;
             assertNotNull("The EJBHome returned from JNDI is null", home);
 
             final EncStatelessObject expected = home.create();
@@ -656,7 +656,7 @@ public class StatelessRmiIiopTests extends StatelessTestClient{
     public void test44_returnEJBObjectArray() {
         try{
             final Object obj = initialContext.lookup("client/tests/stateless/EncBean");
-            final EncStatelessHome home = (EncStatelessHome)javax.rmi.PortableRemoteObject.narrow( obj, EncStatelessHome.class);
+            final EncStatelessHome home = (EncStatelessHome)obj;
             assertNotNull("The EJBHome returned from JNDI is null", home);
 
             final EncStatelessObject[] expected = new EncStatelessObject[3];
@@ -685,7 +685,7 @@ public class StatelessRmiIiopTests extends StatelessTestClient{
     public void test45_returnEJBMetaData() {
         try{
             final Object obj = initialContext.lookup("client/tests/stateless/EncBean");
-            final EncStatelessHome home = (EncStatelessHome)javax.rmi.PortableRemoteObject.narrow( obj, EncStatelessHome.class);
+            final EncStatelessHome home = (EncStatelessHome)obj;
             assertNotNull("The EJBHome returned from JNDI is null", home);
 
             final EJBMetaData expected = home.getEJBMetaData();
@@ -714,7 +714,7 @@ public class StatelessRmiIiopTests extends StatelessTestClient{
     public void test47_returnNestedEJBMetaData() {
         try{
             final Object obj = initialContext.lookup("client/tests/stateless/EncBean");
-            final EncStatelessHome home = (EncStatelessHome)javax.rmi.PortableRemoteObject.narrow( obj, EncStatelessHome.class);
+            final EncStatelessHome home = (EncStatelessHome)obj;
             assertNotNull("The EJBHome returned from JNDI is null", home);
 
             final EJBMetaData expected = home.getEJBMetaData();
@@ -750,7 +750,7 @@ public class StatelessRmiIiopTests extends StatelessTestClient{
         try{
 
             final Object obj = initialContext.lookup("client/tests/stateless/EncBean");
-            final EncStatelessHome home = (EncStatelessHome)javax.rmi.PortableRemoteObject.narrow( obj, EncStatelessHome.class);
+            final EncStatelessHome home = (EncStatelessHome)obj;
             assertNotNull("The EJBHome returned from JNDI is null", home);
 
             final EJBMetaData[] expected = new EJBMetaData[3];
@@ -781,7 +781,7 @@ public class StatelessRmiIiopTests extends StatelessTestClient{
     public void test50_returnHandle() {
         try{
             final Object obj = initialContext.lookup("client/tests/stateless/EncBean");
-            final EncStatelessHome home = (EncStatelessHome)javax.rmi.PortableRemoteObject.narrow( obj, EncStatelessHome.class);
+            final EncStatelessHome home = (EncStatelessHome)obj;
             assertNotNull("The EJBHome returned from JNDI is null", home);
 
             final EncStatelessObject object = home.create();
@@ -818,7 +818,7 @@ public class StatelessRmiIiopTests extends StatelessTestClient{
     public void test52_returnNestedHandle() {
         try{
             final Object obj = initialContext.lookup("client/tests/stateless/EncBean");
-            final EncStatelessHome home = (EncStatelessHome)javax.rmi.PortableRemoteObject.narrow( obj, EncStatelessHome.class);
+            final EncStatelessHome home = (EncStatelessHome)obj;
             assertNotNull("The EJBHome returned from JNDI is null", home);
 
             final EncStatelessObject object = home.create();
@@ -861,7 +861,7 @@ public class StatelessRmiIiopTests extends StatelessTestClient{
     public void test54_returnHandleArray() {
         try{
             final Object obj = initialContext.lookup("client/tests/stateless/EncBean");
-            final EncStatelessHome home = (EncStatelessHome)javax.rmi.PortableRemoteObject.narrow( obj, EncStatelessHome.class);
+            final EncStatelessHome home = (EncStatelessHome)obj;
             assertNotNull("The EJBHome returned from JNDI is null", home);
 
             final EncStatelessObject object = home.create();

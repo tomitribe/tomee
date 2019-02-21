@@ -38,7 +38,7 @@ public class StatelessFieldInjectionTests extends StatefulTestClient {
     protected void setUp() throws Exception{
         super.setUp();
         final Object obj = initialContext.lookup("client/tests/stateless/FieldInjectionStatelessBean");
-        ejbHome = (EncStatelessHome)javax.rmi.PortableRemoteObject.narrow( obj, EncStatelessHome.class);
+        ejbHome = (EncStatelessHome)obj;
         ejbObject = ejbHome.create();
 
         /*[2] Create database table */

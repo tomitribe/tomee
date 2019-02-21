@@ -70,7 +70,7 @@ public class BMTStatelessAllowedOperationsTests extends BasicStatelessTestClient
     protected void setUp() throws Exception{
         super.setUp();
         final Object obj = initialContext.lookup("client/tests/stateless/BeanManagedBasicStatelessHome");
-        ejbHome = (BasicStatelessHome)javax.rmi.PortableRemoteObject.narrow( obj, BasicStatelessHome.class);
+        ejbHome = (BasicStatelessHome)obj;
         ejbObject = ejbHome.createObject();
         ejbHandle = ejbObject.getHandle();
         timerSync = (TimerSync) initialContext.lookup("TimerSyncBeanBusinessRemote");

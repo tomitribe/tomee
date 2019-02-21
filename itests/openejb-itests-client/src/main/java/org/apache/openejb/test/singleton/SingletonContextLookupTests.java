@@ -35,7 +35,7 @@ public class SingletonContextLookupTests extends SingletonTestClient{
     protected void setUp() throws Exception{
         super.setUp();
         final Object obj = initialContext.lookup("client/tests/singleton/ContextLookupSingletonBean");
-        ejbHome = (EncSingletonHome)javax.rmi.PortableRemoteObject.narrow( obj, EncSingletonHome.class);
+        ejbHome = (EncSingletonHome)obj;
         ejbObject = ejbHome.create();
 
         /*[2] Create database table */
