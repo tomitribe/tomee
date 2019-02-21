@@ -16,32 +16,32 @@
  */
 package org.apache.openejb.test.stateless;
 
-import java.rmi.RemoteException;
-import java.sql.Connection;
+import junit.framework.AssertionFailedError;
+import org.apache.openejb.test.TestFailureException;
+import org.apache.openejb.test.entity.bmp.BasicBmpHome;
+import org.apache.openejb.test.entity.bmp.BasicBmpObject;
+import org.apache.openejb.test.stateful.BasicStatefulBusinessLocal;
+import org.apache.openejb.test.stateful.BasicStatefulBusinessRemote;
+import org.apache.openejb.test.stateful.BasicStatefulHome;
+import org.apache.openejb.test.stateful.BasicStatefulObject;
+import org.apache.openejb.test.stateful.BasicStatefulPojoBean;
+import org.junit.Assert;
 
 import javax.ejb.EJBContext;
 import javax.ejb.EJBException;
 import javax.ejb.SessionContext;
-import javax.naming.InitialContext;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityManager;
-import javax.sql.DataSource;
 import javax.jms.ConnectionFactory;
+import javax.jms.JMSException;
+import javax.jms.MessageProducer;
+import javax.jms.QueueConnectionFactory;
 import javax.jms.Session;
 import javax.jms.Topic;
-import javax.jms.MessageProducer;
 import javax.jms.TopicConnectionFactory;
-import javax.jms.QueueConnectionFactory;
-import javax.jms.JMSException;
-import javax.rmi.PortableRemoteObject;
-
-import org.junit.Assert;
-import junit.framework.AssertionFailedError;
-
-import org.apache.openejb.test.TestFailureException;
-import org.apache.openejb.test.entity.bmp.BasicBmpHome;
-import org.apache.openejb.test.entity.bmp.BasicBmpObject;
-import org.apache.openejb.test.stateful.*;
+import javax.naming.InitialContext;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.sql.DataSource;
+import java.rmi.RemoteException;
 
 public class EncStatelessBean implements javax.ejb.SessionBean {
 
