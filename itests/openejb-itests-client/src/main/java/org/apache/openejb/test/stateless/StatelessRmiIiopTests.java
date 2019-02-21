@@ -16,15 +16,13 @@
  */
 package org.apache.openejb.test.stateless;
 
+import org.apache.openejb.test.object.Color;
+import org.apache.openejb.test.object.ObjectGraph;
+
 import javax.ejb.EJBHome;
 import javax.ejb.EJBMetaData;
 import javax.ejb.EJBObject;
 import javax.ejb.Handle;
-import javax.rmi.PortableRemoteObject;
-
-import org.apache.openejb.test.object.ObjectGraph;
-import org.apache.openejb.test.object.Color;
-
 import java.rmi.RemoteException;
 
 public class StatelessRmiIiopTests extends StatelessTestClient{
@@ -39,7 +37,7 @@ public class StatelessRmiIiopTests extends StatelessTestClient{
     protected void setUp() throws Exception{
         super.setUp();
         final Object obj = initialContext.lookup("client/tests/stateless/RMI-over-IIOP/EJBHome");
-        ejbHome = (RmiIiopStatelessHome)javax.rmi.PortableRemoteObject.narrow( obj, RmiIiopStatelessHome.class);
+        ejbHome = (RmiIiopStatelessHome)obj;
         ejbObject = ejbHome.create();
     }
 
@@ -522,7 +520,7 @@ public class StatelessRmiIiopTests extends StatelessTestClient{
             final EncStatelessHome expected = (EncStatelessHome)obj;
             assertNotNull("The EJBHome returned from JNDI is null", expected);
 
-            final EncStatelessHome actual = (EncStatelessHome)PortableRemoteObject.narrow( ejbObject.returnEJBHome(expected), EncStatelessHome.class);
+            final EncStatelessHome actual = (EncStatelessHome)ejbObject.returnEJBHome(expected);
             assertNotNull("The EJBHome returned is null", actual);
 
         } catch (final Exception e){
@@ -532,7 +530,7 @@ public class StatelessRmiIiopTests extends StatelessTestClient{
 
     public void test36_returnEJBHome2() {
         try{
-            final EncStatelessHome actual = (EncStatelessHome)PortableRemoteObject.narrow(ejbObject.returnEJBHome(), EncStatelessHome.class);
+            final EncStatelessHome actual = (EncStatelessHome)ejbObject.returnEJBHome();
             assertNotNull("The EJBHome returned is null", actual);
 
         } catch (final Exception e){
@@ -549,7 +547,7 @@ public class StatelessRmiIiopTests extends StatelessTestClient{
             final ObjectGraph graph = ejbObject.returnObjectGraph(new ObjectGraph(expected));
             assertNotNull("The ObjectGraph is null", graph);
 
-            final EncStatelessHome actual = (EncStatelessHome)PortableRemoteObject.narrow(graph.getObject(), EncStatelessHome.class);
+            final EncStatelessHome actual = (EncStatelessHome)graph.getObject();
             assertNotNull("The EJBHome returned is null", actual);
         } catch (final Exception e){
             fail("Received Exception "+e.getClass()+ " : "+e.getMessage());
@@ -561,7 +559,7 @@ public class StatelessRmiIiopTests extends StatelessTestClient{
             final ObjectGraph graph = ejbObject.returnNestedEJBHome();
             assertNotNull("The ObjectGraph is null", graph);
 
-            final EncStatelessHome actual = (EncStatelessHome)PortableRemoteObject.narrow(graph.getObject(), EncStatelessHome.class);
+            final EncStatelessHome actual = (EncStatelessHome)graph.getObject();
             assertNotNull("The EJBHome returned is null", actual);
         } catch (final Exception e){
             fail("Received Exception "+e.getClass()+ " : "+e.getMessage());
@@ -601,7 +599,7 @@ public class StatelessRmiIiopTests extends StatelessTestClient{
             final EncStatelessObject expected = home.create();
             assertNotNull("The EJBObject created is null", expected);
 
-            final EncStatelessObject actual = (EncStatelessObject)PortableRemoteObject.narrow(ejbObject.returnEJBObject(expected), EncStatelessObject.class);
+            final EncStatelessObject actual = (EncStatelessObject)ejbObject.returnEJBObject(expected);
             assertNotNull("The EJBObject returned is null", actual);
 
             assertTrue("The EJBObejcts are not identical", expected.isIdentical(actual));
@@ -612,7 +610,7 @@ public class StatelessRmiIiopTests extends StatelessTestClient{
 
     public void test41_returnEJBObject2() {
         try{
-            final EncStatelessObject actual = (EncStatelessObject)PortableRemoteObject.narrow(ejbObject.returnEJBObject(), EncStatelessObject.class);
+            final EncStatelessObject actual = (EncStatelessObject)ejbObject.returnEJBObject();
             assertNotNull("The EJBObject returned is null", actual);
 
         } catch (final Exception e){
@@ -632,7 +630,7 @@ public class StatelessRmiIiopTests extends StatelessTestClient{
             final ObjectGraph graph = ejbObject.returnObjectGraph(new ObjectGraph(expected));
             assertNotNull("The ObjectGraph is null", graph);
 
-            final EncStatelessObject actual = (EncStatelessObject)PortableRemoteObject.narrow(graph.getObject(), EncStatelessObject.class);
+            final EncStatelessObject actual = (EncStatelessObject)graph.getObject();
             assertNotNull("The EJBObject returned is null", actual);
 
             assertTrue("The EJBObejcts are not identical", expected.isIdentical(actual));
@@ -646,7 +644,7 @@ public class StatelessRmiIiopTests extends StatelessTestClient{
             final ObjectGraph graph = ejbObject.returnNestedEJBObject();
             assertNotNull("The ObjectGraph is null", graph);
 
-            final EncStatelessObject actual = (EncStatelessObject)PortableRemoteObject.narrow(graph.getObject(), EncStatelessObject.class);
+            final EncStatelessObject actual = (EncStatelessObject)graph.getObject();
             assertNotNull("The EJBHome returned is null", actual);
         } catch (final Exception e){
             fail("Received Exception "+e.getClass()+ " : "+e.getMessage());
@@ -955,7 +953,7 @@ public class StatelessRmiIiopTests extends StatelessTestClient{
         try {
             final Color expected = Color.GREEN;
 
-            final Color actual = (Color) PortableRemoteObject.narrow(ejbObject.returnColor(expected), Color.class);
+            final Color actual = (Color) ejbObject.returnColor(expected);
 
             assertNotNull("The Color returned is null", actual);
 
@@ -970,7 +968,7 @@ public class StatelessRmiIiopTests extends StatelessTestClient{
         try {
             final Color expected = Color.GREEN;
 
-            final Color actual = (Color) PortableRemoteObject.narrow(ejbObject.returnColor(), Color.class);
+            final Color actual = (Color) ejbObject.returnColor();
 
             assertNotNull("The Color returned is null", actual);
 

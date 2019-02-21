@@ -38,7 +38,7 @@ public class Unknown2HandleTests extends UnknownCmp2TestClient {
     protected void setUp() throws Exception {
         super.setUp();
         final Object obj = initialContext.lookup("client/tests/entity/cmp2/UnknownCmpHome");
-        ejbHome = (UnknownCmpHome) javax.rmi.PortableRemoteObject.narrow(obj, UnknownCmpHome.class);
+        ejbHome = (UnknownCmpHome) obj;
         ejbObject = ejbHome.createObject("Fifth Bean");
         ejbHandle = ejbObject.getHandle();
     }

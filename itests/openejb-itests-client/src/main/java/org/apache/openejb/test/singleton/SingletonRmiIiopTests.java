@@ -22,7 +22,6 @@ import javax.ejb.EJBHome;
 import javax.ejb.EJBMetaData;
 import javax.ejb.EJBObject;
 import javax.ejb.Handle;
-import javax.rmi.PortableRemoteObject;
 import java.rmi.RemoteException;
 
 public class SingletonRmiIiopTests extends SingletonTestClient{
@@ -520,7 +519,7 @@ public class SingletonRmiIiopTests extends SingletonTestClient{
             final EncSingletonHome expected = (EncSingletonHome)obj;
             assertNotNull("The EJBHome returned from JNDI is null", expected);
 
-            final EncSingletonHome actual = (EncSingletonHome)PortableRemoteObject.narrow( ejbObject.returnEJBHome(expected), EncSingletonHome.class);
+            final EncSingletonHome actual = (EncSingletonHome) ejbObject.returnEJBHome(expected);
             assertNotNull("The EJBHome returned is null", actual);
 
         } catch (final Exception e){
@@ -530,7 +529,7 @@ public class SingletonRmiIiopTests extends SingletonTestClient{
 
     public void test36_returnEJBHome2() {
         try{
-            final EncSingletonHome actual = (EncSingletonHome)PortableRemoteObject.narrow(ejbObject.returnEJBHome(), EncSingletonHome.class);
+            final EncSingletonHome actual = (EncSingletonHome)ejbObject.returnEJBHome();
             assertNotNull("The EJBHome returned is null", actual);
 
         } catch (final Exception e){
@@ -547,7 +546,7 @@ public class SingletonRmiIiopTests extends SingletonTestClient{
             final ObjectGraph graph = ejbObject.returnObjectGraph(new ObjectGraph(expected));
             assertNotNull("The ObjectGraph is null", graph);
 
-            final EncSingletonHome actual = (EncSingletonHome)PortableRemoteObject.narrow(graph.getObject(), EncSingletonHome.class);
+            final EncSingletonHome actual = (EncSingletonHome)graph.getObject();
             assertNotNull("The EJBHome returned is null", actual);
         } catch (final Exception e){
             fail("Received Exception "+e.getClass()+ " : "+e.getMessage());
@@ -559,7 +558,7 @@ public class SingletonRmiIiopTests extends SingletonTestClient{
             final ObjectGraph graph = ejbObject.returnNestedEJBHome();
             assertNotNull("The ObjectGraph is null", graph);
 
-            final EncSingletonHome actual = (EncSingletonHome)PortableRemoteObject.narrow(graph.getObject(), EncSingletonHome.class);
+            final EncSingletonHome actual = (EncSingletonHome)graph.getObject();
             assertNotNull("The EJBHome returned is null", actual);
         } catch (final Exception e){
             fail("Received Exception "+e.getClass()+ " : "+e.getMessage());
@@ -599,7 +598,7 @@ public class SingletonRmiIiopTests extends SingletonTestClient{
             final EncSingletonObject expected = home.create();
             assertNotNull("The EJBObject created is null", expected);
 
-            final EncSingletonObject actual = (EncSingletonObject)PortableRemoteObject.narrow(ejbObject.returnEJBObject(expected), EncSingletonObject.class);
+            final EncSingletonObject actual = (EncSingletonObject)ejbObject.returnEJBObject(expected);
             assertNotNull("The EJBObject returned is null", actual);
 
             assertTrue("The EJBObejcts are not identical", expected.isIdentical(actual));
@@ -610,7 +609,7 @@ public class SingletonRmiIiopTests extends SingletonTestClient{
 
     public void test41_returnEJBObject2() {
         try{
-            final EncSingletonObject actual = (EncSingletonObject)PortableRemoteObject.narrow(ejbObject.returnEJBObject(), EncSingletonObject.class);
+            final EncSingletonObject actual = (EncSingletonObject)ejbObject.returnEJBObject();
             assertNotNull("The EJBObject returned is null", actual);
 
         } catch (final Exception e){
@@ -630,7 +629,7 @@ public class SingletonRmiIiopTests extends SingletonTestClient{
             final ObjectGraph graph = ejbObject.returnObjectGraph(new ObjectGraph(expected));
             assertNotNull("The ObjectGraph is null", graph);
 
-            final EncSingletonObject actual = (EncSingletonObject)PortableRemoteObject.narrow(graph.getObject(), EncSingletonObject.class);
+            final EncSingletonObject actual = (EncSingletonObject)graph.getObject();
             assertNotNull("The EJBObject returned is null", actual);
 
             assertTrue("The EJBObejcts are not identical", expected.isIdentical(actual));
@@ -644,7 +643,7 @@ public class SingletonRmiIiopTests extends SingletonTestClient{
             final ObjectGraph graph = ejbObject.returnNestedEJBObject();
             assertNotNull("The ObjectGraph is null", graph);
 
-            final EncSingletonObject actual = (EncSingletonObject)PortableRemoteObject.narrow(graph.getObject(), EncSingletonObject.class);
+            final EncSingletonObject actual = (EncSingletonObject)graph.getObject();
             assertNotNull("The EJBHome returned is null", actual);
         } catch (final Exception e){
             fail("Received Exception "+e.getClass()+ " : "+e.getMessage());

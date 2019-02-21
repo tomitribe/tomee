@@ -171,7 +171,7 @@ public abstract class EncCmp2Bean implements EntityBean {
                 final InitialContext ctx = new InitialContext();
                 Assert.assertNotNull("The InitialContext is null", ctx);
 
-                final BasicStatelessBusinessRemote object = (BasicStatelessBusinessRemote) javax.rmi.PortableRemoteObject.narrow(ctx.lookup("java:comp/env/entity/cmp/beanReferences/stateless-business-remote"), BasicStatelessBusinessRemote.class);
+                final BasicStatelessBusinessRemote object = (BasicStatelessBusinessRemote) ctx.lookup("java:comp/env/entity/cmp/beanReferences/stateless-business-remote");
                 Assert.assertNotNull("The EJB BusinessRemote is null", object);
             } catch (final Exception e) {
                 Assert.fail("Received Exception " + e.getClass() + " : " + e.getMessage());

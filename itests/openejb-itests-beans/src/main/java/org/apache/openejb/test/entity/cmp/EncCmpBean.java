@@ -97,7 +97,7 @@ public class EncCmpBean implements javax.ejb.EntityBean {
                 final InitialContext ctx = new InitialContext();
                 Assert.assertNotNull("The InitialContext is null", ctx);
 
-                final BasicCmpHome home = (BasicCmpHome) javax.rmi.PortableRemoteObject.narrow(ctx.lookup("java:comp/env/entity/cmp/beanReferences/cmp_entity"), BasicCmpHome.class);
+                final BasicCmpHome home = (BasicCmpHome) ctx.lookup("java:comp/env/entity/cmp/beanReferences/cmp_entity");
                 Assert.assertNotNull("The EJBHome looked up is null", home);
 
                 final BasicCmpObject object = home.createObject("Enc Bean");
@@ -116,7 +116,7 @@ public class EncCmpBean implements javax.ejb.EntityBean {
                 final InitialContext ctx = new InitialContext();
                 Assert.assertNotNull("The InitialContext is null", ctx);
 
-                final BasicStatefulHome home = (BasicStatefulHome) javax.rmi.PortableRemoteObject.narrow(ctx.lookup("java:comp/env/entity/cmp/beanReferences/stateful"), BasicStatefulHome.class);
+                final BasicStatefulHome home = (BasicStatefulHome) ctx.lookup("java:comp/env/entity/cmp/beanReferences/stateful");
                 Assert.assertNotNull("The EJBHome looked up is null", home);
 
                 final BasicStatefulObject object = home.createObject("Enc Bean");
@@ -135,7 +135,7 @@ public class EncCmpBean implements javax.ejb.EntityBean {
                 final InitialContext ctx = new InitialContext();
                 Assert.assertNotNull("The InitialContext is null", ctx);
 
-                final BasicStatelessHome home = (BasicStatelessHome) javax.rmi.PortableRemoteObject.narrow(ctx.lookup("java:comp/env/entity/cmp/beanReferences/stateless"), BasicStatelessHome.class);
+                final BasicStatelessHome home = (BasicStatelessHome) ctx.lookup("java:comp/env/entity/cmp/beanReferences/stateless");
                 Assert.assertNotNull("The EJBHome looked up is null", home);
 
                 final BasicStatelessObject object = home.createObject();
@@ -172,7 +172,7 @@ public class EncCmpBean implements javax.ejb.EntityBean {
                 final InitialContext ctx = new InitialContext();
                 Assert.assertNotNull("The InitialContext is null", ctx);
 
-                final BasicStatelessBusinessRemote object = (BasicStatelessBusinessRemote) javax.rmi.PortableRemoteObject.narrow(ctx.lookup("java:comp/env/entity/cmp/beanReferences/stateless-business-remote"), BasicStatelessBusinessRemote.class);
+                final BasicStatelessBusinessRemote object = (BasicStatelessBusinessRemote) ctx.lookup("java:comp/env/entity/cmp/beanReferences/stateless-business-remote");
                 Assert.assertNotNull("The EJB BusinessRemote is null", object);
             } catch (final Exception e) {
                 Assert.fail("Received Exception " + e.getClass() + " : " + e.getMessage());
@@ -188,7 +188,7 @@ public class EncCmpBean implements javax.ejb.EntityBean {
                 final InitialContext ctx = new InitialContext();
                 Assert.assertNotNull("The InitialContext is null", ctx);
 
-                final BasicStatefulBusinessLocal object = (BasicStatefulBusinessLocal) javax.rmi.PortableRemoteObject.narrow(ctx.lookup("java:comp/env/entity/cmp/beanReferences/stateful-business-local"), BasicStatefulBusinessLocal.class);
+                final BasicStatefulBusinessLocal object = (BasicStatefulBusinessLocal) ctx.lookup("java:comp/env/entity/cmp/beanReferences/stateful-business-local");
                 Assert.assertNotNull("The EJB BusinessLocal is null", object);
             } catch (final Exception e) {
                 Assert.fail("Received Exception " + e.getClass() + " : " + e.getMessage());
@@ -204,7 +204,7 @@ public class EncCmpBean implements javax.ejb.EntityBean {
                 final InitialContext ctx = new InitialContext();
                 Assert.assertNotNull("The InitialContext is null", ctx);
 
-                final BasicStatefulBusinessRemote object = (BasicStatefulBusinessRemote) javax.rmi.PortableRemoteObject.narrow(ctx.lookup("java:comp/env/entity/cmp/beanReferences/stateful-business-remote"), BasicStatefulBusinessRemote.class);
+                final BasicStatefulBusinessRemote object = (BasicStatefulBusinessRemote) ctx.lookup("java:comp/env/entity/cmp/beanReferences/stateful-business-remote");
                 Assert.assertNotNull("The EJB BusinessRemote is null", object);
             } catch (final Exception e) {
                 Assert.fail("Received Exception " + e.getClass() + " : " + e.getMessage());

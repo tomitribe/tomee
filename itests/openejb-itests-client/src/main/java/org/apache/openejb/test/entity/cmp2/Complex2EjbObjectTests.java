@@ -35,7 +35,7 @@ public class Complex2EjbObjectTests extends ComplexCmp2TestClient {
     protected void setUp() throws Exception {
         super.setUp();
         final Object obj = initialContext.lookup("client/tests/entity/cmp2/ComplexCmpHome");
-        ejbHome = (ComplexCmpHome) javax.rmi.PortableRemoteObject.narrow(obj, ComplexCmpHome.class);
+        ejbHome = (ComplexCmpHome) obj;
         ejbObject = ejbHome.createObject("Third Bean");
     }
 

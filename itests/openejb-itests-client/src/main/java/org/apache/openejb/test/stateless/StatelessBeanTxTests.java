@@ -65,7 +65,7 @@ public class StatelessBeanTxTests extends org.apache.openejb.test.NamedTestCase{
 
         /*[1] Get bean */
         final Object obj = initialContext.lookup(jndiEJBHomeEntry);
-        ejbHome = (BeanTxStatelessHome)javax.rmi.PortableRemoteObject.narrow( obj, BeanTxStatelessHome.class);
+        ejbHome = (BeanTxStatelessHome)obj;
         ejbObject = ejbHome.create();
 
         /*[2] Create database table */

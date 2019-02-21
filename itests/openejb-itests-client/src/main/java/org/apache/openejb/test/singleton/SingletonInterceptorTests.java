@@ -39,8 +39,7 @@ public class SingletonInterceptorTests extends BasicSingletonLocalTestClient {
         super.setUp();
         final Object obj = initialContext.lookup("BasicSingletonInterceptedBusinessRemote");
         assertNotNull("The BasicSingletonInterceptedBusinessRemote object is null", obj);
-        remoteInterceptor = (BasicSingletonInterceptedRemote) javax.rmi.PortableRemoteObject.narrow(obj,
-                BasicSingletonInterceptedRemote.class);
+        remoteInterceptor = (BasicSingletonInterceptedRemote) obj;
         assertNotNull("Remote interceptor is null", remoteInterceptor);
     }
 

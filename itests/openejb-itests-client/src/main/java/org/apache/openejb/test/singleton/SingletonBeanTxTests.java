@@ -65,7 +65,7 @@ public class SingletonBeanTxTests extends org.apache.openejb.test.NamedTestCase{
 
         /*[1] Get bean */
         final Object obj = initialContext.lookup(jndiEJBHomeEntry);
-        ejbHome = (BeanTxSingletonHome)javax.rmi.PortableRemoteObject.narrow( obj, BeanTxSingletonHome.class);
+        ejbHome = (BeanTxSingletonHome)obj;
         ejbObject = ejbHome.create();
 
         /*[2] Create database table */

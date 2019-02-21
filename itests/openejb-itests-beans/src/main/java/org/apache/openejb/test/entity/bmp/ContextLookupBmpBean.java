@@ -63,7 +63,7 @@ public class ContextLookupBmpBean implements javax.ejb.EntityBean {
      * @see EncBmpHome#findEmptyCollection()
      */
     public java.util.Collection ejbFindEmptyCollection()
-        throws javax.ejb.FinderException, java.rmi.RemoteException {
+        throws javax.ejb.FinderException {
         return new java.util.Vector();
     }
 

@@ -65,7 +65,7 @@ public class StatefulBeanTxTests extends org.apache.openejb.test.NamedTestCase{
 
         /*[1] Get bean */
         final Object obj = initialContext.lookup(jndiEJBHomeEntry);
-        ejbHome = (BeanTxStatefulHome)javax.rmi.PortableRemoteObject.narrow( obj, BeanTxStatefulHome.class);
+        ejbHome = (BeanTxStatefulHome)obj;
         ejbObject = ejbHome.create("Transaction Bean");
 
         /*[2] Create database table */
