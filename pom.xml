@@ -1851,6 +1851,12 @@
         <scope>provided</scope>
       </dependency>
       <dependency>
+        <groupId>com.sun.corba</groupId>
+        <artifactId>orb</artifactId>
+        <version>9.1</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
         <groupId>commons-discovery</groupId>
         <artifactId>commons-discovery</artifactId>
         <version>${commons-discovery.version}</version>
