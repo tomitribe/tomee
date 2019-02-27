@@ -300,6 +300,7 @@ class AppInfoBuilder {
             }
         }
 
+        logger.info("Reading the cmpMappingsXml");
         if (appModule.getCmpMappings() != null) {
             try {
                 appInfo.cmpMappingsXml = JpaJaxbUtil.marshal(EntityMappings.class, appModule.getCmpMappings());
@@ -307,7 +308,7 @@ class AppInfoBuilder {
                 throw new OpenEJBException("Unable to marshal cmp entity mappings", e);
             }
         }
-
+        logger.info("appInfo.cmpMappingsXml: " + appInfo.cmpMappingsXml);
         final ReportValidationResults reportValidationResults = new ReportValidationResults();
         reportValidationResults.deploy(appModule);
 
