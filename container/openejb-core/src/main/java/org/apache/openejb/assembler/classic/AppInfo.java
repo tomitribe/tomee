@@ -56,4 +56,38 @@ public class AppInfo extends InfoObject {
     public final Set<String> jsfClasses = new TreeSet<String>();
     public final Set<String> eventClassesNeedingAppClassloader = new TreeSet<String>();
     public boolean webAppAlone;
+
+
+    @Override
+    public String toString() {
+        return "AppInfo{" +
+                "properties=" + properties +
+                ", appId='" + appId + '\'' +
+                ", path='" + path + '\'' +
+                ", paths=" + paths +
+                ", autoDeploy=" + autoDeploy +
+                ", delegateFirst=" + delegateFirst +
+                ", standaloneModule=" + standaloneModule +
+                ", clients=" + clients +
+                ", ejbJars=" + ejbJars +
+                ", pojoConfigurations=" + pojoConfigurations +
+                ", connectors=" + connectors +
+                ", webApps=" + webApps +
+                ", persistenceUnits=" + persistenceUnits +
+                ", services=" + services +
+                ", libs=" + libs +
+                ", watchedResources=" + watchedResources +
+                ", resourceIds=" + resourceIds +
+                ", resourceAliases=" + resourceAliases +
+                ", globalJndiEnc=" + globalJndiEnc +
+                ", appJndiEnc=" + appJndiEnc +
+                ", cmpMappingsXml='" + cmpMappingsXml + '\'' +
+                ", jmx=" + jmx +
+                ", mbeans=" + mbeans +
+                ", jaxRsProviders=" + jaxRsProviders +
+                ", jsfClasses=" + jsfClasses +
+                ", eventClassesNeedingAppClassloader=" + eventClassesNeedingAppClassloader +
+                ", webAppAlone=" + webAppAlone +
+                '}';
+    }
 }
