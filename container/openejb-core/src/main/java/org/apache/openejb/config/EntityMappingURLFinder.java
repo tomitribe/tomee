@@ -16,8 +16,6 @@
  */
 package org.apache.openejb.config;
 
-import org.apache.openejb.util.LogCategory;
-import org.apache.openejb.util.Logger;
 import org.apache.xbean.finder.ResourceFinder;
 
 import java.net.MalformedURLException;
@@ -44,9 +42,9 @@ enum EntityMappingURLFinder implements BiFunction<String, AppModule, URL> {
 
 
     @Override
-    public URL apply(String location, AppModule appModule) {
-        for (BiFunction<String, AppModule, URL> finder : finders) {
-            URL url = finder.apply(location, appModule);
+    public URL apply(final String location, final AppModule appModule) {
+        for (final BiFunction<String, AppModule, URL> finder : finders) {
+            final URL url = finder.apply(location, appModule);
             if (url != null) {
                 return url;
             }
@@ -58,7 +56,7 @@ enum EntityMappingURLFinder implements BiFunction<String, AppModule, URL> {
     private class DefaultFinder implements BiFunction<String, AppModule, URL> {
 
         @Override
-        public URL apply(String location, AppModule appModule) {
+        public URL apply(final String location, final AppModule appModule) {
             return Thread.currentThread().getContextClassLoader().getResource(location);
         }
     }
@@ -66,7 +64,7 @@ enum EntityMappingURLFinder implements BiFunction<String, AppModule, URL> {
     private class URLFinder implements BiFunction<String, AppModule, URL> {
 
         @Override
-        public URL apply(String location, AppModule appModule) {
+        public URL apply(final String location, final AppModule appModule) {
             try {
                 return new URL(location);
             } catch (MalformedURLException e) {
@@ -78,15 +76,15 @@ enum EntityMappingURLFinder implements BiFunction<String, AppModule, URL> {
     private class AppModuleMetaInfFinder implements BiFunction<String, AppModule, URL> {
 
         @Override
-        public URL apply(String location, AppModule appModule) {
+        public URL apply(final String location, final AppModule appModule) {
 
             if (!location.contains(DeploymentLoader.META_INF)) {
                 return null;
             }
 
-            for (EjbModule ejbModule : appModule.getEjbModules()) {
+            for (final EjbModule ejbModule : appModule.getEjbModules()) {
 
-                URL url = getUrl(location, ejbModule);
+                final URL url = getUrl(location, ejbModule);
                 if (url != null) {
                     return url;
                 }
@@ -94,11 +92,11 @@ enum EntityMappingURLFinder implements BiFunction<String, AppModule, URL> {
             return null;
         }
 
-        private URL getUrl(String location, EjbModule ejbModule) {
+        private URL getUrl(final String location, final EjbModule ejbModule) {
             try {
                 final ResourceFinder finder = new ResourceFinder("", ejbModule.getClassLoader());
-                Map<String, URL> map = DeploymentLoader.mapDescriptors(finder);
-                String fileName = location.replace(DeploymentLoader.META_INF, "");
+                final Map<String, URL> map = DeploymentLoader.mapDescriptors(finder);
+                final String fileName = location.replace(DeploymentLoader.META_INF, "");
                 return map.get(fileName);
             } catch (Exception ex) {
                 return null;

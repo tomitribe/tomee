@@ -107,7 +107,7 @@ public class CmpJpaConversion implements DynamicDeployer {
         try {
             LOGGER.info("Reading an entity map from location: " + location);
 
-            URL url = EntityMappingURLFinder.INSTANCE.apply(location, appModule);
+            final URL url = EntityMappingURLFinder.INSTANCE.apply(location, appModule);
             LOGGER.info("the URL found: " + url);
             if (url == null) {
                 return null;
@@ -144,7 +144,7 @@ public class CmpJpaConversion implements DynamicDeployer {
                 for (final String mappingFile : cmpPersistenceUnit.getMappingFile()) {
                     final EntityMappings entityMappings = readEntityMappings(mappingFile, appModule);
                     if (entityMappings != null) {
-                        Set<String> classes = entityMappings.getEntityMap().keySet();
+                        final Set<String> classes = entityMappings.getEntityMap().keySet();
                         LOGGER.info(String.format("The loaded class loaded from the mappingFile %s : %s", mappingFile, classes));
                         definedMappedClasses.addAll(classes);
                     }
@@ -214,8 +214,8 @@ public class CmpJpaConversion implements DynamicDeployer {
             }
         }
 
-        StringBuilder classes = new StringBuilder();
-        for (Entity entity : cmpMappings.getEntity()) {
+        final StringBuilder classes = new StringBuilder();
+        for (final Entity entity : cmpMappings.getEntity()) {
             classes.append(entity.getClazz()).append(',');
         }
         LOGGER.info("Processed the entity bean: " + classes.toString());
@@ -276,7 +276,7 @@ public class CmpJpaConversion implements DynamicDeployer {
             return appModule.getJarLocation() == null? appModule.getModuleId(): appModule.getJarLocation();
         }
         for (final EjbModule ejbModule : appModule.getEjbModules()) {
-            return appModule.getJarLocation() == null? appModule.getModuleId(): appModule.getJarLocation();
+            return ejbModule.getJarLocation() == null? ejbModule.getModuleId(): ejbModule.getJarLocation();
         }
         throw new IllegalStateException("Comp must be in an ejb module, this one has none: " + appModule);
     }
