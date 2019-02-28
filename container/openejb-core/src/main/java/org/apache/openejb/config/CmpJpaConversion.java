@@ -89,17 +89,17 @@ public class CmpJpaConversion implements DynamicDeployer {
 
     // A specific set of fields that get marked as transient in the superclass mappings 
     private static final Set<String> ENHANCED_FIELDS = Collections.unmodifiableSet(new TreeSet<String>(Arrays.asList(
-        "pcInheritedFieldCount",
-        "pcFieldNames",
-        "pcFieldTypes",
-        "pcFieldFlags",
-        "pcPCSuperclass",
-        "pcStateManager",
-        "class$Ljava$lang$String",
-        "class$Ljava$lang$Integer",
-        "class$Lcom$sun$ts$tests$common$ejb$wrappers$CMP11Wrapper",
-        "pcDetachedState",
-        "serialVersionUID"
+            "pcInheritedFieldCount",
+            "pcFieldNames",
+            "pcFieldTypes",
+            "pcFieldFlags",
+            "pcPCSuperclass",
+            "pcStateManager",
+            "class$Ljava$lang$String",
+            "class$Ljava$lang$Integer",
+            "class$Lcom$sun$ts$tests$common$ejb$wrappers$CMP11Wrapper",
+            "pcDetachedState",
+            "serialVersionUID"
     )));
 
     private static EntityMappings readEntityMappings(final String location, final AppModule appModule) {
@@ -119,6 +119,7 @@ public class CmpJpaConversion implements DynamicDeployer {
         }
 
     }
+
     public AppModule deploy(final AppModule appModule) throws OpenEJBException {
 
         if (!hasCmpEntities(appModule)) {
@@ -199,7 +200,7 @@ public class CmpJpaConversion implements DynamicDeployer {
 
             persistenceUnit.getMappingFile().add("META-INF/openejb-cmp-generated-orm.xml");
             for (final Entity entity : cmpMappings.getEntity()) {
-                if (! persistenceUnit.getClazz().contains(entity.getClazz())) {
+                if (!persistenceUnit.getClazz().contains(entity.getClazz())) {
                     LOGGER.info("Adds a new class the Persistence Unit, class: " + entity.getClazz());
                     persistenceUnit.getClazz().add(entity.getClazz());
                 }
@@ -271,14 +272,19 @@ public class CmpJpaConversion implements DynamicDeployer {
         return persistenceUnit;
     }
 
-    private String getPersistenceModuleId(final AppModule appModule) {
-        if (appModule.getModuleId() != null) {
-            return appModule.getJarLocation() == null? appModule.getModuleId(): appModule.getJarLocation();
+    /**
+     * Returns an ID to persistence module. It tries the {@link AppModule#getModuleUri()} if it null that will return the {@link EjbModule#getModuleId()}.
+     * EclipseLink failed with the CMP->JPA mapping, because EclipseLink is expecting a URL. https://issues.apache.org/jira/browse/TOMEE-2330.
+     *
+     * @param appModule the module
+     * @return the module id
+     */
+    String getPersistenceModuleId(final AppModule appModule) {
+        if (appModule.getModuleUri() != null) {
+            return appModule.getModuleUri().toString();
+        } else {
+            return appModule.getModuleId();
         }
-        for (final EjbModule ejbModule : appModule.getEjbModules()) {
-            return ejbModule.getJarLocation() == null? ejbModule.getModuleId(): ejbModule.getJarLocation();
-        }
-        throw new IllegalStateException("Comp must be in an ejb module, this one has none: " + appModule);
     }
 
     /**
@@ -337,12 +343,12 @@ public class CmpJpaConversion implements DynamicDeployer {
         // left not found?
         if (leftEntity == null) {
             throw new OpenEJBException("Role source " + leftEjbName + " defined in relationship role " +
-                relation.getEjbRelationName() + "::" + leftRole.getEjbRelationshipRoleName() + " not found");
+                    relation.getEjbRelationName() + "::" + leftRole.getEjbRelationshipRoleName() + " not found");
         }
         // right not found?
         if (rightEntity == null) {
             throw new OpenEJBException("Role source " + rightEjbName + " defined in relationship role " +
-                relation.getEjbRelationName() + "::" + rightRole.getEjbRelationshipRoleName() + " not found");
+                    relation.getEjbRelationName() + "::" + rightRole.getEjbRelationshipRoleName() + " not found");
         }
 
         final Attributes rightAttributes = rightEntity.getAttributes();
@@ -493,7 +499,8 @@ public class CmpJpaConversion implements DynamicDeployer {
     /**
      * Generate the CMP mapping data for an individual
      * EntityBean.
-     *  @param ejbModule      The module containing the bean.
+     *
+     * @param ejbModule      The module containing the bean.
      * @param ignoreClasses
      * @param entityMappings The accumulated set of entity mappings.
      * @param bean           The been we're generating the mapping for.
