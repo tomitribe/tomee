@@ -974,6 +974,8 @@ public class ConfigurationFactory implements OpenEjbConfigurationFactory {
         final AppInfo info = appInfoBuilder.build(appModule);
         info.eventClassesNeedingAppClassloader.addAll(notLoaded);
 
+        logger.info("AppInfo: " + info.toString());
+
         return info;
     }
 
