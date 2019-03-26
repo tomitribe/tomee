@@ -33,7 +33,7 @@
   <groupId>org.apache.tomee</groupId>
   <artifactId>tomee-project</artifactId>
   <packaging>pom</packaging>
-  <version>8.0.0-M2</version>
+  <version>8.0.0-M2-TT1</version>
 
   <name>Apache OpenEJB</name>
   <description>Apache OpenEJB is an open source, modular, configurable and extensible EJB Container System and EJB Server.</description>
@@ -88,7 +88,7 @@
     <connection>scm:git:https://git-wip-us.apache.org/repos/asf/tomee.git</connection>
     <developerConnection>scm:git:https://git-wip-us.apache.org/repos/asf/tomee.git</developerConnection>
     <url>http://git-wip-us.apache.org/repos/asf/tomee.git</url>
-    <tag>tomee-8.0.0-M2</tag>
+    <tag>tomee-8.0.0-M2-TT1</tag>
   </scm>
 
   <properties>
@@ -210,7 +210,7 @@
     <microprofile.metrics.impl.version>1.0.2</microprofile.metrics.impl.version>
     <microprofile.rest-client.version>1.1</microprofile.rest-client.version>
     <microprofile.rest-client.impl.version>${cxf.version}</microprofile.rest-client.impl.version>
-    <microprofile.openapi.version>1.0.6</microprofile.openapi.version>
+    <microprofile.openapi.version>1.0.1</microprofile.openapi.version>
     <microprofile.openapi.impl.version>1.0.6</microprofile.openapi.impl.version>
     <microprofile.opentracing.version>1.1</microprofile.opentracing.version>
     <microprofile.opentracing.impl.version>1.0.0</microprofile.opentracing.impl.version>

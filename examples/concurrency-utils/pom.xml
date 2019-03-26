@@ -5,7 +5,7 @@
 
     <groupId>org.superbiz</groupId>
     <artifactId>concurrency-utils</artifactId>
-    <version>8.0.0-M2</version>
+    <version>8.0.0-M2-TT1</version>
     <packaging>jar</packaging>
     <name>OpenEJB :: Examples :: Concurrency utilities example</name>
 

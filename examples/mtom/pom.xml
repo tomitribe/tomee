@@ -22,12 +22,12 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.superbiz</groupId>
   <artifactId>mtom</artifactId>
-  <version>8.0.0-M2</version>
+  <version>8.0.0-M2-TT1</version>
   <name>OpenEJB :: Examples :: MTOM</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <tomee.version>8.0.0-M2</tomee.version>
+    <tomee.version>8.0.0-M2-TT1</tomee.version>
   </properties>
 
   <repositories>

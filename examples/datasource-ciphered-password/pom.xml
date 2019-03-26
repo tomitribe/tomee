@@ -22,12 +22,12 @@
   <groupId>org.superbiz</groupId>
   <artifactId>datasource-ciphered-password</artifactId>
   <packaging>jar</packaging>
-  <version>8.0.0-M2</version>
+  <version>8.0.0-M2-TT1</version>
   <name>OpenEJB :: Examples :: Datasource Ciphered Password</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <tomee.version>8.0.0-M2</tomee.version>
+    <tomee.version>8.0.0-M2-TT1</tomee.version>
   </properties>
 
   <build>
