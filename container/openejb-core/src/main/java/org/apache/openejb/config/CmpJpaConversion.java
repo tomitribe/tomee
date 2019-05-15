@@ -198,7 +198,10 @@ public class CmpJpaConversion implements DynamicDeployer {
             LOGGER.info("CMP is not empty creating CMP from App Module");
             final PersistenceUnit persistenceUnit = getCmpPersistenceUnit(appModule);
 
-            persistenceUnit.getMappingFile().add("META-INF/openejb-cmp-generated-orm.xml");
+            if (persistenceUnit != null && ! persistenceUnit.getMappingFile().contains("META-INF/openejb-cmp-generated-orm.xml")) {
+                persistenceUnit.getMappingFile().add("META-INF/openejb-cmp-generated-orm.xml");
+            }
+
             for (final Entity entity : cmpMappings.getEntity()) {
                 if (!persistenceUnit.getClazz().contains(entity.getClazz())) {
                     LOGGER.info("Adds a new class the Persistence Unit, class: " + entity.getClazz());
