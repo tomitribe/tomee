@@ -27,6 +27,8 @@ import org.apache.openejb.core.security.jacc.BasicPolicyConfiguration;
 import org.apache.openejb.loader.SystemInstance;
 import org.apache.openejb.spi.CallerPrincipal;
 import org.apache.openejb.spi.SecurityService;
+import org.apache.openejb.util.LogCategory;
+import org.apache.openejb.util.Logger;
 
 import javax.security.auth.Subject;
 import javax.security.auth.login.LoginException;
@@ -66,6 +68,8 @@ public abstract class AbstractSecurityService implements SecurityService<UUID>, 
     private static final Timer timer = new Timer("AbstractSecurityService.Timer", true);
     private static final Map<UUID, Identity> identities = new ConcurrentHashMap<UUID, Identity>();
     protected static final ThreadLocal<Identity> clientIdentity = new ThreadLocal<Identity>();
+    private static final Logger logger = Logger.getInstance(LogCategory.OPENEJB_SECURITY, AbstractSecurityService.class);
+
     protected String defaultUser = "guest";
     private String realmName = "PropertiesLogin";
     protected Subject defaultSubject;
@@ -337,6 +341,7 @@ public abstract class AbstractSecurityService implements SecurityService<UUID>, 
 
     @Override
     public boolean isCallerAuthorized(final Method method, final InterfaceType type) {
+        logger.info("isCallerAuthorized: " + method.toString() + ", type: " + type.toString());
         final ThreadContext threadContext = ThreadContext.getThreadContext();
         final BeanContext beanContext = threadContext.getBeanContext();
         try {
@@ -348,14 +353,21 @@ public abstract class AbstractSecurityService implements SecurityService<UUID>, 
             final Identity currentIdentity = clientIdentity.get();
             final SecurityContext securityContext;
             if (currentIdentity == null) {
+                logger.info("isCallerAuthorized: no current identity, getting security context from thread context");
                 securityContext = threadContext.get(SecurityContext.class);
+                logger.info("isCallerAuthorized: security context: " + securityContext.toString() + ", subject: " + securityContext.subject + ", acc: " + securityContext.acc);
             } else {
+                logger.info("isCallerAuthorized: creating new security context for " + currentIdentity.getSubject().toString());
                 securityContext = new SecurityContext(currentIdentity.getSubject());
             }
+
+            logger.info("isCallerAuthorized: checking permission on " + ejbName + "," + name + "," + method);
             securityContext.acc.checkPermission(new EJBMethodPermission(ejbName, name, method));
         } catch (final AccessControlException e) {
+            logger.info("isCallerAuthorized: security check failed");
             return false;
         }
+        logger.info("isCallerAuthorized: security check passed");
         return true;
     }
 
