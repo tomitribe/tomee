@@ -18,7 +18,10 @@
 package org.apache.openejb.core.security.jacc;
 
 import org.apache.openejb.assembler.classic.DelegatePermissionCollection;
+import org.apache.openejb.core.security.AbstractSecurityService;
 import org.apache.openejb.loader.SystemInstance;
+import org.apache.openejb.util.LogCategory;
+import org.apache.openejb.util.Logger;
 
 import javax.security.jacc.PolicyConfiguration;
 import javax.security.jacc.PolicyContextException;
@@ -44,6 +47,7 @@ public class BasicPolicyConfiguration implements PolicyConfiguration {
     protected final Map<String, PermissionCollection> rolePermissionsMap = new LinkedHashMap<String, PermissionCollection>();
     protected PermissionCollection unchecked;
     protected PermissionCollection excluded;
+    private static final Logger logger = Logger.getInstance(LogCategory.OPENEJB_SECURITY, BasicPolicyConfiguration.class);
 
     protected BasicPolicyConfiguration(final String contextID) {
         this.contextID = contextID;
@@ -57,6 +61,7 @@ public class BasicPolicyConfiguration implements PolicyConfiguration {
     public boolean implies(final ProtectionDomain domain, final Permission permission) {
 
         if (excluded != null && excluded.implies(permission)) {
+            logger.info("Failing permission check because permission " + permission + " is excluded");
             return false;
         }
 
@@ -66,6 +71,7 @@ public class BasicPolicyConfiguration implements PolicyConfiguration {
 
         final Principal[] principals = domain.getPrincipals();
         if (principals.length == 0) {
+            logger.info("Failing permission check because domain " + domain + " has no principals");
             return false;
         }
 
@@ -80,6 +86,24 @@ public class BasicPolicyConfiguration implements PolicyConfiguration {
             }
         }
 
+        logger.info("Failing permission check because roles map doesn't have permissions for this call");
+
+        final StringBuilder sb = new StringBuilder();
+
+        for (final String r : rolePermissionsMap.keySet()) {
+            sb.append(r).append(": ");
+            final PermissionCollection permissionCollection = rolePermissionsMap.get(r);
+            final Enumeration<Permission> pc = permissionCollection.elements();
+            while (pc.hasMoreElements()) {
+                final Permission p = pc.nextElement();
+                sb.append(p);
+                if (pc.hasMoreElements()) {
+                    sb.append(", ");
+                }
+            }
+
+            logger.info("Debug permission map: \n" + sb.toString());
+        }
         return false;
     }
 

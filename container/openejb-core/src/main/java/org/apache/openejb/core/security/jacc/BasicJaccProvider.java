@@ -17,7 +17,10 @@
 
 package org.apache.openejb.core.security.jacc;
 
+import org.apache.openejb.core.security.AbstractSecurityService;
 import org.apache.openejb.core.security.JaccProvider;
+import org.apache.openejb.util.LogCategory;
+import org.apache.openejb.util.Logger;
 
 import javax.security.jacc.PolicyConfiguration;
 import javax.security.jacc.PolicyContext;
@@ -33,6 +36,9 @@ import java.util.Map;
  * @version $Rev$ $Date$
  */
 public class BasicJaccProvider extends JaccProvider {
+    private static final Logger logger = Logger.getInstance(LogCategory.OPENEJB_SECURITY, BasicJaccProvider.class);
+
+
     static {
         // force preloading to avoid to loop under SecurityManager
         try {
@@ -87,7 +93,15 @@ public class BasicJaccProvider extends JaccProvider {
                 final BasicPolicyConfiguration configuration = configurations.get(contextID);
 
                 if (configuration == null || !configuration.inService()) {
-                    return false;
+                    if (configuration == null) {
+                        logger.info("Failing check because BasicPolicyConfiguration is null");
+                        return false;
+                    }
+
+                    if (!configuration.inService()) {
+                        logger.info("Failing check because BasicPolicyConfiguration is not in service");
+                        return false;
+                    }
                 }
 
                 return configuration.implies(domain, permission);
