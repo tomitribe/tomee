@@ -72,7 +72,7 @@ public class CmpJarBuilder {
         // Don't generate an empty jar.  If there are no container-managed beans defined in this 
         // application deployment, there's nothing to do. 
         if (!hasCmpBeans()) {
-            logger.debug("Module " + appInfo.path + " does not have any CMP beans, skipping");
+            logger.debug("CmpJarBuilder Module " + appInfo.path + " does not have any CMP beans, skipping");
             return;
         }
 
@@ -87,7 +87,7 @@ public class CmpJarBuilder {
                     if (beanInfo instanceof EntityBeanInfo) {
                         final EntityBeanInfo entityBeanInfo = (EntityBeanInfo) beanInfo;
                         if ("CONTAINER".equalsIgnoreCase(entityBeanInfo.persistenceType)) {
-                            logger.debug("Adding " + entityBeanInfo.ejbName + " to " + jarFile.getAbsolutePath() + " (module=" + appInfo.path + ")");
+                            logger.debug("CmpJarBuilder Adding " + entityBeanInfo.ejbName + " to " + jarFile.getAbsolutePath() + " (module=" + appInfo.path + ")");
                             generateClass(jarOutputStream, entityBeanInfo);
                         }
                     }
@@ -96,8 +96,12 @@ public class CmpJarBuilder {
             if (appInfo.cmpMappingsXml != null) {
                 // System.out.println(appInfo.cmpMappingsXml);
                 final StringBuilder sb = new StringBuilder();
-                sb.append("Adding META-INF/openejb-cmp-generated-orm.xml to " + jarFile + "(module=" + appInfo.path + "). Content:\n")
-                        .append(appInfo.cmpMappingsXml);
+                sb
+                    .append("CmpJarBuilder Adding META-INF/openejb-cmp-generated-orm.xml to ")
+                    .append(jarFile).append("(module=")
+                    .append(appInfo.path)
+                    .append("). Content:\n")
+                    .append(appInfo.cmpMappingsXml);
 
                 logger.debug(sb.toString());
                 addJarEntry(jarOutputStream, "META-INF/openejb-cmp-generated-orm.xml", appInfo.cmpMappingsXml.getBytes());
