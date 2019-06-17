@@ -25,7 +25,7 @@
         <class>openejb.org.apache.openejb.arquillian.tests.cmp.sample.Actor</class>
         <properties>
             <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true, Indexes=false, IgnoreErrors=true)"/>
-            <property name="openjpa.Log" value="DefaultLevel=INFO"/>
+            <property name="openjpa.Log" value="DefaultLevel=INFO, MetaData=TRACE"/>
             <property name="eclipselink.ddl-generation" value="create-tables"/>
         </properties>
     </persistence-unit>

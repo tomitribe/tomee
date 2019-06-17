@@ -46,6 +46,7 @@ public final class LogCategory {
     public static final LogCategory OPENEJB_WS = OPENEJB.createChild("ws");
     public static final LogCategory OPENEJB_RS = OPENEJB.createChild("rs");
     public static final LogCategory OPENEJB_JPA = OPENEJB.createChild("jpa");
+    public static final LogCategory OPENEJB_CMP = OPENEJB.createChild("cmp");
     public static final LogCategory OPENEJB_CDI = OPENEJB.createChild("cdi");
     public static final LogCategory TRANSACTION = new LogCategory("Transaction");
     public static final LogCategory ACTIVEMQ = new LogCategory("org.apache.activemq");

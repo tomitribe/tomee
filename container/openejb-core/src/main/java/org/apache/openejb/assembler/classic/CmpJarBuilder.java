@@ -46,6 +46,7 @@ public class CmpJarBuilder {
     private File jarFile;
     private final Set<String> entries = new TreeSet<String>();
     private final AppInfo appInfo;
+    public static Logger logger = Logger.getInstance(LogCategory.OPENEJB_CMP, CmpJarBuilder.class);
 
     public CmpJarBuilder(final AppInfo appInfo, final ClassLoader classLoader) {
         this.appInfo = appInfo;
@@ -71,6 +72,7 @@ public class CmpJarBuilder {
         // Don't generate an empty jar.  If there are no container-managed beans defined in this 
         // application deployment, there's nothing to do. 
         if (!hasCmpBeans()) {
+            logger.debug("Module " + appInfo.path + " does not have any CMP beans, skipping");
             return;
         }
 
@@ -85,6 +87,7 @@ public class CmpJarBuilder {
                     if (beanInfo instanceof EntityBeanInfo) {
                         final EntityBeanInfo entityBeanInfo = (EntityBeanInfo) beanInfo;
                         if ("CONTAINER".equalsIgnoreCase(entityBeanInfo.persistenceType)) {
+                            logger.debug("Adding " + entityBeanInfo.ejbName + " to " + jarFile.getAbsolutePath() + " (module=" + appInfo.path + ")");
                             generateClass(jarOutputStream, entityBeanInfo);
                         }
                     }
@@ -92,6 +95,11 @@ public class CmpJarBuilder {
             }
             if (appInfo.cmpMappingsXml != null) {
                 // System.out.println(appInfo.cmpMappingsXml);
+                final StringBuilder sb = new StringBuilder();
+                sb.append("Adding META-INF/openejb-cmp-generated-orm.xml to " + jarFile + "(module=" + appInfo.path + "). Content:\n")
+                        .append(appInfo.cmpMappingsXml);
+
+                logger.debug(sb.toString());
                 addJarEntry(jarOutputStream, "META-INF/openejb-cmp-generated-orm.xml", appInfo.cmpMappingsXml.getBytes());
             }
         } catch (final Throwable e) {
@@ -248,7 +256,7 @@ public class CmpJarBuilder {
         File dir = UrlCache.cacheDir;
 
         if (null == dir) {
-            dir = SystemInstance.get().getBase().getDirectory("tmp", true);
+            dir = SystemInstance.get().getBase().getDirectory("temp", true);
         }
 
         // if url caching is enabled, generate the file directly in the cache dir, so it doesn't have to be recoppied
