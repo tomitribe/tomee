@@ -63,8 +63,8 @@ public class CustomOrmXmlHibernateEarTest {
                 .addAsWebInfResource(new ClassLoaderAsset("org/apache/openejb/arquillian/tests/cmp/sample/web.xml"), "web.xml");
 
         final File[] hibernateDependencies = Maven.resolver().resolve(
-    "org.hibernate:hibernate-entitymanager:4.3.9.Final",
-            "org.hibernate:hibernate-core:4.3.9.Final",
+    "org.hibernate:hibernate-entitymanager:4.2.21.Final",
+            "org.hibernate:hibernate-core:4.2.21.Final",
             "org.hibernate.common:hibernate-commons-annotations:4.0.5.Final",
             "antlr:antlr:2.7.7",
             "org.jboss:jandex:1.1.0.Final",
