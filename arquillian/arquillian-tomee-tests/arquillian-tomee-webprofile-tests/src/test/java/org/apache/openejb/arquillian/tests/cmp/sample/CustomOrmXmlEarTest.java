@@ -68,7 +68,6 @@ public class CustomOrmXmlEarTest {
                 .addAsModule(testWar);
 
         System.out.println(archive.toString(true));
-        archive.as(ZipExporter.class).exportTo(new File("/Users/jgallimore/tmp/test.ear"), true);
         return archive;
     }
 
