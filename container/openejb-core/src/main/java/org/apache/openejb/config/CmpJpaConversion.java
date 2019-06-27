@@ -135,7 +135,6 @@ public class CmpJpaConversion implements DynamicDeployer {
             appModule.setCmpMappings(cmpMappings);
         }
 
-        // todo scan existing persistence module for all entity mappings and don't generate mappings for them
 
         final Set<String> definedMappedClasses = new HashSet<String>();
 
@@ -155,12 +154,12 @@ public class CmpJpaConversion implements DynamicDeployer {
         }
 
         LOGGER.info("Scanned definedMappedClasses: " + definedMappedClasses.toString());
-        // we process this one jar-file at a time...each contributing to the 
-        // app mapping data 
+        // we process this one jar-file at a time...each contributing to the
+        // app mapping data
         for (final EjbModule ejbModule : appModule.getEjbModules()) {
             final EjbJar ejbJar = ejbModule.getEjbJar();
 
-            // scan for CMP entity beans and merge the data into the collective set 
+            // scan for CMP entity beans and merge the data into the collective set
             for (final EnterpriseBean enterpriseBean : ejbJar.getEnterpriseBeans()) {
                 if (isCmpEntity(enterpriseBean)) {
                     processEntityBean(ejbModule, definedMappedClasses, cmpMappings, (EntityBean) enterpriseBean);
@@ -169,7 +168,7 @@ public class CmpJpaConversion implements DynamicDeployer {
 
 
             // if there are relationships defined in this jar, get a list of the defined
-            // entities and process the relationship maps. 
+            // entities and process the relationship maps.
             final Relationships relationships = ejbJar.getRelationships();
             if (relationships != null) {
 
@@ -199,8 +198,21 @@ public class CmpJpaConversion implements DynamicDeployer {
             LOGGER.info("CMP is not empty creating CMP from App Module");
             final PersistenceUnit persistenceUnit = getCmpPersistenceUnit(appModule);
 
+            final boolean generatedOrmXmlProvided = appModule.getClassLoader().getResource(GENERATED_ORM_XML) != null;
             if (! persistenceUnit.getMappingFile().contains(GENERATED_ORM_XML)) {
+                // explicit check for openejb-cmp-generated-orm, as this is generated and added to <mapping-file>
+                if (generatedOrmXmlProvided) {
+                    LOGGER.warning("App module " + appModule.getModuleId() + " provides " + GENERATED_ORM_XML + ", but does not " +
+                            "specify it using <mapping-file> in persistence.xml for the CMP persistence unit, and it may conflict " +
+                            "with the generated mapping file. Consider renaming the file and explicitly referencing it in persistence.xml");
+                }
                 persistenceUnit.getMappingFile().add(GENERATED_ORM_XML);
+            } else {
+                if (generatedOrmXmlProvided) {
+                    LOGGER.warning("App module " + appModule.getModuleId() + " provides " + GENERATED_ORM_XML + " and additionally "
+                            + cmpMappings.getEntity().size() + "mappings have been generated. Consider renaming the " + GENERATED_ORM_XML + " in " +
+                            "your deployment archive to avoid any conflicts.");
+                }
             }
 
             for (final Entity entity : cmpMappings.getEntity()) {
