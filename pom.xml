@@ -33,7 +33,7 @@
   <groupId>org.apache.tomee</groupId>
   <artifactId>tomee-project</artifactId>
   <packaging>pom</packaging>
-  <version>7.0.6-TT.7</version>
+  <version>7.0.7-SNAPSHOT</version>
 
   <name>Apache OpenEJB</name>
   <description>Apache OpenEJB is an open source, modular, configurable and extensible EJB Container System and EJB Server.</description>
@@ -93,7 +93,7 @@
 
   <properties>
 
-    <tomee.version>7.0.6-TT.7</tomee.version>
+    <tomee.version>7.0.7-SHAPSHOT</tomee.version>
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
 
@@ -109,7 +109,7 @@
     <maven-bundle-plugin.version>3.3.0</maven-bundle-plugin.version>
 
     <!-- This is used by a manifest classpath entry -->
-    <xbeanVersion>4.9</xbeanVersion>
+    <xbeanVersion>4.14</xbeanVersion>
 
     <!-- OSGi bundles properties -->
     <openejb.bundle.activator />
@@ -131,7 +131,7 @@
     <version.shrinkwrap.descriptor>2.0.0</version.shrinkwrap.descriptor>
     <version.shrinkwrap.shrinkwrap>1.2.6</version.shrinkwrap.shrinkwrap>
 
-    <tomcat.version>8.5.40</tomcat.version>
+    <tomcat.version>8.5.42</tomcat.version>
 
     <cxf.version>3.1.17</cxf.version>
     <version.shrinkwrap.shrinkwrap>1.2.6</version.shrinkwrap.shrinkwrap>
@@ -1355,7 +1355,7 @@
       </dependency>
       <dependency>
         <groupId>org.apache.xbean</groupId>
-        <artifactId>xbean-asm6-shaded</artifactId>
+        <artifactId>xbean-asm7-shaded</artifactId>
         <version>${xbeanVersion}</version>
       </dependency>
       <dependency>
