@@ -24,7 +24,7 @@
   <parent>
     <artifactId>server</artifactId>
     <groupId>org.apache.tomee</groupId>
-    <version>7.0.6-TT.7</version>
+    <version>7.0.7-TT.1</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <artifactId>openejb-server</artifactId>
@@ -84,7 +84,7 @@
     </dependency>
     <dependency>
       <groupId>org.apache.xbean</groupId>
-      <artifactId>xbean-asm6-shaded</artifactId>
+      <artifactId>xbean-asm7-shaded</artifactId>
     </dependency>
     <dependency>
       <groupId>org.apache.xbean</groupId>
