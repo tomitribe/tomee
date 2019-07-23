@@ -18,8 +18,10 @@ package org.apache.openejb.config;
 
 import org.apache.xbean.finder.ResourceFinder;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Enumeration;
 import java.util.List;
 import java.util.Map;
 
@@ -57,7 +59,16 @@ enum EntityMappingURLFinder implements BiFunction<String, AppModule, URL> {
 
         @Override
         public URL apply(final String location, final AppModule appModule) {
-            return Thread.currentThread().getContextClassLoader().getResource(location);
+            try {
+                final Enumeration<URL> resources = appModule.getClassLoader().getResources(location);
+                if (resources.hasMoreElements()) {
+                    return resources.nextElement();
+                }
+            } catch (IOException e) {
+                // ignore
+            }
+
+            return null;
         }
     }
 
@@ -83,18 +94,25 @@ enum EntityMappingURLFinder implements BiFunction<String, AppModule, URL> {
             }
 
             for (final EjbModule ejbModule : appModule.getEjbModules()) {
-
                 final URL url = getUrl(location, ejbModule);
                 if (url != null) {
                     return url;
                 }
             }
+
+            for (final PersistenceModule persistenceModule : appModule.getPersistenceModules()) {
+                final URL url = getUrl(location, persistenceModule);
+                if (url != null) {
+                    return url;
+                }
+            }
+
             return null;
         }
 
-        private URL getUrl(final String location, final EjbModule ejbModule) {
+        private URL getUrl(final String location, final DeploymentModule module) {
             try {
-                final ResourceFinder finder = new ResourceFinder("", ejbModule.getClassLoader());
+                final ResourceFinder finder = new ResourceFinder(module.getJarLocation(), module.getClassLoader());
                 final Map<String, URL> map = DeploymentLoader.mapDescriptors(finder);
                 final String fileName = location.replace(DeploymentLoader.META_INF, "");
                 return map.get(fileName);
