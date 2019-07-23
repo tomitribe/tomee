@@ -59,16 +59,17 @@ enum EntityMappingURLFinder implements BiFunction<String, AppModule, URL> {
 
         @Override
         public URL apply(final String location, final AppModule appModule) {
-            try {
-                final Enumeration<URL> resources = appModule.getClassLoader().getResources(location);
-                if (resources.hasMoreElements()) {
-                    return resources.nextElement();
-                }
-            } catch (IOException e) {
-                // ignore
-            }
+//            try {
+//                final Enumeration<URL> resources = appModule.getClassLoader().getResources(location);
+//                if (resources.hasMoreElements()) {
+//                    return resources.nextElement();
+//                }
+//            } catch (IOException e) {
+//                // ignore
+//            }
+            return Thread.currentThread().getContextClassLoader().getResource(location);
 
-            return null;
+//            return null;
         }
     }
 
