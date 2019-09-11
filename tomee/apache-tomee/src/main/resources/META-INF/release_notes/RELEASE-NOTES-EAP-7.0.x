@@ -1,4 +1,4 @@
-= TomEE EAP 7.0.1-SP.1
+= TomEE EAP 7.0.1-SP.2
 
 == Change log
 
