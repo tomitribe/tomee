@@ -1,6 +1,12 @@
-= TomEE EAP 1.7.4-SP.7
+= TomEE EAP 1.7.4-SP.8
 
 == Change log
+
+=== Changes in TomEE EAP 1.7.4-SP.8
+
+* SONATYPE-2018-0605 - update CXF to 2.6.17-TT.4 to mitigate SONATYPE-2018-0605
+* Update Quartz to 2.2.4 to mitigate CVE-2019-13990
+* Update Beanutils to 1.9.4 to mitigate CVE-2019-10086
 
 === Changes in TomEE EAP 1.7.4-SP.7
 
