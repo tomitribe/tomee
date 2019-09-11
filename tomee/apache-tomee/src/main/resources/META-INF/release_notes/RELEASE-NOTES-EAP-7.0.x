@@ -2,6 +2,13 @@
 
 == Change log
 
+=== Changes in TomEE EAP 7.0.1-SP.2
+
+* Update Tomcat to 8.5.3-TT.2 to mitigate CVE-2019-0199. CVE-2019-0232, and CVE-2019-10072, affecting the CGI Servlet on Windows and potential DOS attacks on HTTP/2 connectors.
+* SONATYPE-2018-0605 - update CXF to 2.6.17-TT.4 to mitigate SONATYPE-2018-0605
+* Update Quartz to 2.2.4 to mitigate CVE-2019-13990
+* Update Beanutils to 1.9.4 to mitigate CVE-2019-10086
+
 === Changes in TomEE EAP 7.0.1-SP.1
 
 This security release fixes the following issues:
