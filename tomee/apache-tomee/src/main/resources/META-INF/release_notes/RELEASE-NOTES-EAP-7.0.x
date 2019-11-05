@@ -1,6 +1,10 @@
-= TomEE EAP 7.0.1-SP.2
+= TomEE EAP 7.0.1-SP.3
 
 == Change log
+
+=== Changes in TomEE EAP 7.0.1-SP.3
+
+* Update to Mojarra 2.2.20 to mitigate CVE-2019-17091
 
 === Changes in TomEE EAP 7.0.1-SP.2
 
