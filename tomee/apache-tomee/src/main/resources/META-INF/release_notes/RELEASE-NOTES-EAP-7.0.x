@@ -1,6 +1,10 @@
-= TomEE EAP 7.0.1-SP.3
+= TomEE EAP 7.0.1-SP.4
 
 == Change log
+
+=== Changes in TomEE EAP 7.0.1-SP.4
+
+Update CXF to 3.1.6-TT.3 to mitigate CVE-2019-12419 and CVE-2019-12406
 
 === Changes in TomEE EAP 7.0.1-SP.3
 
