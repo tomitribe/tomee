@@ -1,6 +1,10 @@
-= TomEE EAP 1.7.4-SP.9
+= TomEE EAP 1.7.4-SP.10
 
 == Change log
+
+=== Changes in TomEE EAP 1.7.4-SP.10
+
+* Update Tomcat to 7.0.68-TT.6 to mitigate CVE-2019-12418 & CVE-2019-17563
 
 === Changes in TomEE EAP 1.7.4-SP.9
 
