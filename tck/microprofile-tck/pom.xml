@@ -22,7 +22,7 @@
   <parent>
     <groupId>org.apache.tomee</groupId>
     <artifactId>tck</artifactId>
-    <version>7.1.2-TT.5</version>
+    <version>7.1.3-TT.1</version>
   </parent>
 
   <artifactId>microprofile-tck</artifactId>
