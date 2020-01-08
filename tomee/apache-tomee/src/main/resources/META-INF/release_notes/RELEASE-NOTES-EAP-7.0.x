@@ -1,4 +1,9 @@
-= TomEE EAP 7.0.7-TT.4
+= TomEE EAP 7.0.8-TT.1
+
+=== Changes in TomEE EAP 7.0.8-TT.1
+
+* Update to Tomcat 7.0.99 to mitigate CVE-2019-12418 & CVE-2019-17563
+* Update Commons-Daemon to resolve crash issues on x86.
 
 === Changes in TomEE EAP 7.0.7-TT.4
 
