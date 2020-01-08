@@ -1,4 +1,8 @@
-= TomEE EAP 7.1.2-TT.5
+= TomEE EAP 7.1.3-TT.1
+
+=== Changes in TomEE EAP 7.1.3-TT.1
+
+* Update Tomcat to 8.5.50 to mitigate CVE-2019-12418 & CVE-2019-17563
 
 === Changes in TomEE EAP 7.1.2-TT.5
 
