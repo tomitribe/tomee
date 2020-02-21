@@ -23,7 +23,7 @@
   <parent>
     <artifactId>arquillian</artifactId>
     <groupId>org.apache.tomee</groupId>
-    <version>7.0.1-SP.5</version>
+    <version>7.0.1-SP.6</version>
   </parent>
 
   <artifactId>arquillian-common</artifactId>
