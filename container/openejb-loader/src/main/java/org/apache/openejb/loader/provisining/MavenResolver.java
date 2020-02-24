@@ -38,7 +38,7 @@ import java.net.URL;
 import java.util.Properties;
 
 public class MavenResolver implements ArchiveResolver, ProvisioningResolverAware {
-    private static final String REPO1 = "http://repo1.maven.org/maven2/";
+    private static final String REPO1 = "https://repo1.maven.org/maven2/";
     private static final String APACHE_SNAPSHOT = "https://repository.apache.org/snapshots/";
     private static final String SNAPSHOT_SUFFIX = "-SNAPSHOT";
 
