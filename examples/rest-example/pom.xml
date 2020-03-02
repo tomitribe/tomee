@@ -17,21 +17,17 @@
     limitations under the License.
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-
   <modelVersion>4.0.0</modelVersion>
-
   <groupId>org.superbiz</groupId>
   <artifactId>rest-example</artifactId>
   <packaging>war</packaging>
   <version>7.0.8-TT.2</version>
   <name>OpenEJB :: Web Examples :: REST Example</name>
-
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <tomee.version>7.0.8-TT.2</tomee.version>
     <version.openjpa>2.4.0</version.openjpa>
   </properties>
-
   <repositories>
     <repository>
       <id>apache-m2-snapshot</id>
@@ -43,8 +39,12 @@
       <name>Tomcat Dev Repository</name>
       <url>http://tomcat.apache.org/dev/dist/m2-repository/</url>
     </repository>
+    <repository>
+      <id>tomitribe-all</id>
+      <name>Tomitribe Repository</name>
+      <url>https://repository.tomitribe.com/content/groups/tomitribe/</url>
+    </repository>
   </repositories>
-
   <pluginRepositories>
     <pluginRepository>
       <id>apache-m2-snapshot</id>
@@ -52,7 +52,6 @@
       <url>https://repository.apache.org/content/groups/snapshots</url>
     </pluginRepository>
   </pluginRepositories>
-
   <build>
     <finalName>${project.artifactId}</finalName>
     <defaultGoal>package</defaultGoal>
@@ -118,7 +117,6 @@
       -->
     </plugins>
   </build>
-
   <dependencies>
     <dependency>
       <groupId>org.apache.tomee</groupId>
@@ -157,7 +155,6 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-
   <!--
   This section allows you to configure where to publish libraries for sharing.
   It is not required and may be deleted.  For more information see:

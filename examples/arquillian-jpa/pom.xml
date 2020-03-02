@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <!-- Licensed to the Apache Software Foundation (ASF) under one or more contributor 
 	license agreements. See the NOTICE file distributed with this work for additional 
 	information regarding copyright ownership. The ASF licenses this file to 
@@ -14,15 +15,12 @@
   <artifactId>arquillian-jpa</artifactId>
   <name>OpenEJB :: Examples :: Arquillian Persistence Extension Sample</name>
   <version>7.0.8-TT.2</version>
-
   <properties>
     <arquillian.version>1.1.10.Final</arquillian.version>
     <arquillian-persistence.version>1.0.0.Alpha7</arquillian-persistence.version>
     <tomee.version>7.0.8-TT.2</tomee.version>
-
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-
   <build>
     <defaultGoal>install</defaultGoal>
     <plugins>
@@ -37,15 +35,18 @@
       </plugin>
     </plugins>
   </build>
-
   <repositories>
     <repository>
       <id>apache-m2-snapshot</id>
       <name>Apache Snapshot Repository</name>
       <url>https://repository.apache.org/content/groups/snapshots</url>
     </repository>
+    <repository>
+      <id>tomitribe-all</id>
+      <name>Tomitribe Repository</name>
+      <url>https://repository.tomitribe.com/content/groups/tomitribe/</url>
+    </repository>
   </repositories>
-
   <dependencies>
     <dependency>
       <groupId>org.apache.tomee</groupId>
@@ -95,7 +96,6 @@
       </exclusions>
     </dependency>
   </dependencies>
-
   <!--
   This section allows you to configure where to publish libraries for sharing.
   It is not required and may be deleted.  For more information see:

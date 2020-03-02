@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <!-- Licensed to the Apache Software Foundation (ASF) under one or more contributor 
     license agreements. See the NOTICE file distributed with this work for additional
     information regarding copyright ownership. The ASF licenses this file to
@@ -10,24 +11,19 @@
     language governing permissions and limitations under the License. -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
   <groupId>org.superbiz</groupId>
   <artifactId>deltaspike-fullstack</artifactId>
   <name>OpenEJB :: Examples :: JSF2/CDI/BV/JPA/DeltaSpike</name>
   <version>7.0.8-TT.2</version>
-
   <packaging>war</packaging>
-
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
     <version.myfaces2>2.2.7</version.myfaces2>
     <version.deltaspike>1.3.0</version.deltaspike>
     <version.extval>2.0.8</version.extval>
     <tomee.version>7.0.8-TT.2</tomee.version>
     <openjpa.version>2.4.3</openjpa.version>
   </properties>
-
   <build>
     <defaultGoal>install</defaultGoal>
     <plugins>
@@ -83,7 +79,8 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>2.18.1</version>
-        <configuration> <!-- optional -->
+        <configuration>
+          <!-- optional -->
           <systemPropertyVariables>
             <openejb.jul.forceReload>true</openejb.jul.forceReload>
             <logging.level.OpenEJB.startup>FINEST</logging.level.OpenEJB.startup>
@@ -92,7 +89,6 @@
       </plugin>
     </plugins>
   </build>
-
   <repositories>
     <repository>
       <id>apache-m2-snapshot</id>
@@ -108,8 +104,12 @@
       <url>http://repository.primefaces.org/</url>
       <layout>default</layout>
     </repository>
+    <repository>
+      <id>tomitribe-all</id>
+      <name>Tomitribe Repository</name>
+      <url>https://repository.tomitribe.com/content/groups/tomitribe/</url>
+    </repository>
   </repositories>
-
   <dependencies>
     <dependency>
       <groupId>org.apache.tomee</groupId>
@@ -269,7 +269,6 @@
       <version>${version.deltaspike}</version>
       <scope>test</scope>
     </dependency>
-
     <!-- only needed for mocked cdi-beans -->
     <dependency>
       <groupId>org.mockito</groupId>
@@ -277,7 +276,6 @@
       <version>1.9.5</version>
       <scope>test</scope>
     </dependency>
-
     <!-- for full page-bean tests -->
     <dependency>
       <groupId>org.apache.myfaces.core</groupId>
@@ -319,7 +317,6 @@
         </exclusion>
       </exclusions>
     </dependency>
-
     <!-- 3rd party libs -->
     <dependency>
       <groupId>org.primefaces</groupId>
@@ -327,7 +324,6 @@
       <version>2.2</version>
     </dependency>
   </dependencies>
-
   <!--
   This section allows you to configure where to publish libraries for sharing.
   It is not required and may be deleted.  For more information see:
@@ -343,6 +339,4 @@
       <url>file://${basedir}/target/snapshot-repo/</url>
     </snapshotRepository>
   </distributionManagement>
-
 </project>
-

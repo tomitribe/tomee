@@ -16,37 +16,34 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 -->
-
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
   <groupId>org.superbiz</groupId>
   <artifactId>scala-basic</artifactId>
   <packaging>jar</packaging>
   <version>7.0.8-TT.2</version>
   <name>OpenEJB :: Examples :: Basic Scala</name>
-
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
     <scala.version>2.11</scala.version>
     <scala.full-version>${scala.version}.9</scala.full-version>
   </properties>
-
   <repositories>
     <repository>
       <id>apache-m2-snapshot</id>
       <name>Apache Snapshot Repository</name>
       <url>https://repository.apache.org/content/groups/snapshots</url>
     </repository>
+    <repository>
+      <id>tomitribe-all</id>
+      <name>Tomitribe Repository</name>
+      <url>https://repository.tomitribe.com/content/groups/tomitribe/</url>
+    </repository>
   </repositories>
-
   <build>
     <defaultGoal>install</defaultGoal>
-
     <sourceDirectory>src/main/scala</sourceDirectory>
     <testSourceDirectory>src/test/scala</testSourceDirectory>
-
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -57,7 +54,6 @@
           <target>1.7</target>
         </configuration>
       </plugin>
-
       <!-- compile scala sources -->
       <plugin>
         <groupId>net.alchim31.maven</groupId>
@@ -75,7 +71,6 @@
           <scalaVersion>${scala.full-version}</scalaVersion>
         </configuration>
       </plugin>
-
       <!-- disable surefire because we use scalatest -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -107,7 +102,6 @@
       </plugin>
     </plugins>
   </build>
-
   <dependencies>
     <dependency>
       <groupId>org.apache.tomee</groupId>
@@ -115,7 +109,6 @@
       <version>7.0-3-TT.2</version>
       <scope>provided</scope>
     </dependency>
-
     <!-- scala dependencies for run and testing -->
     <dependency>
       <groupId>org.scala-lang</groupId>
@@ -134,7 +127,6 @@
         </exclusion>
       </exclusions>
     </dependency>
-
     <!-- other "classical" dependencies -->
     <dependency>
       <groupId>junit</groupId>
@@ -149,7 +141,6 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-
   <!-- This section allows you to configure where to publish libraries for
     sharing. It is not required and may be deleted. For more information see:
     http://maven.apache.org/plugins/maven-deploy-plugin/ -->
@@ -163,7 +154,6 @@
       <url>file://${basedir}/target/snapshot-repo/</url>
     </snapshotRepository>
   </distributionManagement>
-
   <profiles>
     <profile>
       <id>java9</id>
