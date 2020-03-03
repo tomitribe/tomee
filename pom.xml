@@ -98,7 +98,7 @@
     <maven.compiler.target>1.8</maven.compiler.target>
 
     <!-- To easily change the javaee api version -->
-    <version.javaee-api>7.0-3-TT.1</version.javaee-api>
+    <version.javaee-api>7.0-3-TT.2</version.javaee-api>
 
     <openjpa.version>2.4.3</openjpa.version>
     <org.apache.openwebbeans.version>1.7.6</org.apache.openwebbeans.version>
@@ -821,6 +821,11 @@
     </repository>
   </repositories>
   <pluginRepositories>
+    <pluginRepository>
+      <id>tomitribe-all</id>
+      <name>Tomitribe Repository</name>
+      <url>https://repository.tomitribe.com/content/groups/tomitribe/</url>
+    </pluginRepository>
     <pluginRepository>
       <id>apache-m2-snapshot</id>
       <name>Apache Software Foundation M2 Snapshot Repository</name>
