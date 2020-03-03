@@ -24,7 +24,7 @@
   <groupId>org.superbiz</groupId>
   <artifactId>jpa-eclipselink</artifactId>
   <packaging>jar</packaging>
-  <version>7.1.3-TT.1</version>
+  <version>7.1.3-TT.2</version>
   <name>OpenEJB :: Examples :: JPA with EclipseLink</name>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -54,6 +54,11 @@
       <name>EclipseLink Repository</name>
       <url>http://www.eclipse.org/downloads/download.php?r=1&amp;nf=1&amp;file=/rt/eclipselink/maven.repo</url>
     </repository>
+    <repository>
+      <id>tomitribe-all</id>
+      <name>Tomitribe Repository</name>
+      <url>https://repository.tomitribe.com/content/groups/tomitribe/</url>
+    </repository>
   </repositories>
   <dependencies>
     <!-- spec apis such as javax.persistence -->
@@ -73,7 +78,7 @@
     <dependency>
       <groupId>org.apache.tomee</groupId>
       <artifactId>openejb-core</artifactId>
-      <version>7.1.3-TT.1</version>
+      <version>7.1.3-TT.2</version>
       <scope>test</scope>
     </dependency>
     <!-- toplink dependencies -->

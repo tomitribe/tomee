@@ -18,19 +18,16 @@
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
   <groupId>jug</groupId>
   <artifactId>polling-parent</artifactId>
-  <version>7.1.3-TT.1</version>
+  <version>7.1.3-TT.2</version>
   <packaging>pom</packaging>
   <name>OpenEJB :: Examples :: Polling</name>
-  
   <properties>
     <xbean.version>4.14</xbean.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <tomee.version>7.1.3-TT.1</tomee.version>
+    <tomee.version>7.1.3-TT.2</tomee.version>
   </properties>
-
   <build>
     <defaultGoal>install</defaultGoal>
     <plugins>
@@ -50,15 +47,18 @@
       </plugin>
     </plugins>
   </build>
-
   <repositories>
     <repository>
       <id>apache-m2-snapshot</id>
       <name>Apache Snapshot Repository</name>
       <url>https://repository.apache.org/content/groups/snapshots</url>
     </repository>
+    <repository>
+      <id>tomitribe-all</id>
+      <name>Tomitribe Repository</name>
+      <url>https://repository.tomitribe.com/content/groups/tomitribe/</url>
+    </repository>
   </repositories>
-
   <pluginRepositories>
     <pluginRepository>
       <id>apache-m2-plugin-snapshot</id>
@@ -66,7 +66,6 @@
       <url>https://repository.apache.org/content/groups/snapshots</url>
     </pluginRepository>
   </pluginRepositories>
-
   <modules>
     <module>polling-domain</module>
     <module>polling-core</module>
@@ -74,7 +73,6 @@
     <module>polling-client</module>
     <module>polling-mdb</module>
   </modules>
-
   <dependencyManagement>
     <dependencies>
       <!-- API -->
@@ -87,24 +85,22 @@
       <dependency>
         <groupId>org.apache.tomee</groupId>
         <artifactId>openejb-api</artifactId>
-        <version>7.1.3-TT.1</version>
+        <version>7.1.3-TT.2</version>
         <scope>provided</scope>
       </dependency>
-
       <!-- impl - for standard code scope test is fine -->
       <dependency>
         <groupId>org.apache.tomee</groupId>
         <artifactId>openejb-core</artifactId>
-        <version>7.1.3-TT.1</version>
+        <version>7.1.3-TT.2</version>
         <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>org.apache.tomee</groupId>
         <artifactId>openejb-cxf-rs</artifactId>
-        <version>7.1.3-TT.1</version>
+        <version>7.1.3-TT.2</version>
         <scope>provided</scope>
       </dependency>
-
       <!-- test -->
       <dependency>
         <groupId>org.jboss.arquillian.junit</groupId>
@@ -115,25 +111,25 @@
       <dependency>
         <groupId>org.apache.tomee</groupId>
         <artifactId>arquillian-tomee-embedded</artifactId>
-        <version>7.1.3-TT.1</version>
+        <version>7.1.3-TT.2</version>
         <scope>test</scope>
       </dependency>
       <dependency>
         <groupId>org.apache.tomee</groupId>
         <artifactId>arquillian-tomee-remote</artifactId>
-        <version>7.1.3-TT.1</version>
+        <version>7.1.3-TT.2</version>
         <scope>test</scope>
       </dependency>
       <dependency>
         <groupId>org.apache.tomee</groupId>
         <artifactId>tomee-webservices</artifactId>
-        <version>7.1.3-TT.1</version>
+        <version>7.1.3-TT.2</version>
         <scope>test</scope>
       </dependency>
       <dependency>
         <groupId>org.apache.tomee</groupId>
         <artifactId>ziplock</artifactId>
-        <version>7.1.3-TT.1</version>
+        <version>7.1.3-TT.2</version>
         <scope>test</scope>
       </dependency>
       <dependency>
@@ -148,7 +144,6 @@
         <version>2.0.1</version>
         <scope>test</scope>
       </dependency>
-
       <!-- client -->
       <dependency>
         <groupId>org.apache.cxf</groupId>
@@ -176,8 +171,7 @@
         <version>1.3.4</version>
       </dependency>
     </dependencies>
-  </dependencyManagement>  
-
+  </dependencyManagement>
   <!--
   This section allows you to configure where to publish libraries for sharing.
   It is not required and may be deleted.  For more information see:

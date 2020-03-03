@@ -1,4 +1,9 @@
-= TomEE EAP 7.1.3-TT.1
+= TomEE EAP 7.1.3-TT.2
+
+=== Changes in TomEE EAP 7.1.3-TT.2
+
+* Update Tomcat to 8.5.51 to mitigate CVE-2020-1398
+* Update to CXF-3.1.19-TT.3 to mitigate CVE-2019-17573 and CVE-2019-12423
 
 === Changes in TomEE EAP 7.1.3-TT.1
 

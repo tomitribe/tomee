@@ -16,22 +16,17 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 -->
-
 <!-- $Rev: 1346534 $ $Date: 2012-06-05 20:57:54 +0200 (mar. 05 juin 2012) $ -->
-
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
   <groupId>org.superbiz</groupId>
   <artifactId>server-events</artifactId>
   <packaging>jar</packaging>
-  <version>7.1.3-TT.1</version>
+  <version>7.1.3-TT.2</version>
   <name>OpenEJB :: Examples :: Server Events</name>
-
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-
   <build>
     <defaultGoal>install</defaultGoal>
     <plugins>
@@ -46,15 +41,18 @@
       </plugin>
     </plugins>
   </build>
-
   <repositories>
     <repository>
       <id>apache-m2-snapshot</id>
       <name>Apache Snapshot Repository</name>
       <url>https://repository.apache.org/content/groups/snapshots</url>
     </repository>
+    <repository>
+      <id>tomitribe-all</id>
+      <name>Tomitribe Repository</name>
+      <url>https://repository.tomitribe.com/content/groups/tomitribe/</url>
+    </repository>
   </repositories>
-
   <dependencies>
     <dependency>
       <groupId>org.apache.tomee</groupId>
@@ -68,10 +66,9 @@
     <dependency>
       <groupId>org.apache.tomee</groupId>
       <artifactId>openejb-core</artifactId>
-      <version>7.1.3-TT.1</version>
+      <version>7.1.3-TT.2</version>
       <scope>provided</scope>
     </dependency>
-
     <!-- test libs -->
     <dependency>
       <groupId>junit</groupId>
@@ -82,7 +79,7 @@
     <dependency>
       <groupId>org.apache.tomee</groupId>
       <artifactId>arquillian-openejb-embedded</artifactId>
-      <version>7.1.3-TT.1</version>
+      <version>7.1.3-TT.2</version>
       <scope>test</scope>
     </dependency>
   </dependencies>

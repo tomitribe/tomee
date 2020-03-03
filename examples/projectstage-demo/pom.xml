@@ -18,25 +18,26 @@
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
   <groupId>org.superbiz</groupId>
   <artifactId>projectstage-demo</artifactId>
-  <version>7.1.3-TT.1</version>
+  <version>7.1.3-TT.2</version>
   <name>OpenEJB :: Examples :: DeltaSpike ProjectStage</name>
-
   <properties>
-    <tomee.version>7.1.3-TT.1</tomee.version>
+    <tomee.version>7.1.3-TT.2</tomee.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-
   <repositories>
     <repository>
       <id>apache-m2-snapshot</id>
       <name>Apache Snapshot Repository</name>
       <url>https://repository.apache.org/content/groups/snapshots</url>
     </repository>
+    <repository>
+      <id>tomitribe-all</id>
+      <name>Tomitribe Repository</name>
+      <url>https://repository.tomitribe.com/content/groups/tomitribe/</url>
+    </repository>
   </repositories>
-
   <dependencies>
     <dependency>
       <groupId>org.apache.tomee</groupId>
@@ -49,7 +50,6 @@
       <artifactId>deltaspike-core-api</artifactId>
       <version>1.0.0</version>
     </dependency>
-
     <dependency>
       <groupId>org.jboss.arquillian.junit</groupId>
       <artifactId>arquillian-junit-container</artifactId>
@@ -59,13 +59,13 @@
     <dependency>
       <groupId>org.apache.tomee</groupId>
       <artifactId>arquillian-tomee-remote</artifactId>
-      <version>7.1.3-TT.1</version>
+      <version>7.1.3-TT.2</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.tomee</groupId>
       <artifactId>ziplock</artifactId>
-      <version>7.1.3-TT.1</version>
+      <version>7.1.3-TT.2</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -75,7 +75,6 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-
   <distributionManagement>
     <repository>
       <id>localhost</id>
@@ -86,7 +85,6 @@
       <url>file://${basedir}/target/snapshot-repo/</url>
     </snapshotRepository>
   </distributionManagement>
-
   <build>
     <plugins>
       <plugin>
