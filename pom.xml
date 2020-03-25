@@ -743,11 +743,6 @@
     <!--</snapshots>-->
     <!--</repository>-->
     <repository>
-      <id>terracotta</id>
-      <name>Terracotta</name>
-      <url>http://repo.terracotta.org/maven2/</url>
-    </repository>
-    <repository>
       <id>tomitribe-all</id>
       <name>Tomitribe Repository</name>
       <url>https://repository.tomitribe.com/content/groups/tomitribe/</url>
