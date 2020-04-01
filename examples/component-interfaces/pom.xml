@@ -65,7 +65,7 @@
     <dependency>
       <groupId>org.apache.tomee</groupId>
       <artifactId>javaee-api</artifactId>
-      <version>7.0-3-TT.2</version>
+      <version>7.0-2</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
