@@ -1,4 +1,9 @@
-= TomEE EAP 7.0.8-TT.2
+= TomEE EAP 7.0.8-TT.3
+
+=== Changes in TomEE EAP 7.0.8-TT.3
+
+* Update to CXF-3.1.9-TT.4 to mitigate CVE-2020-1954
+
 
 === Changes in TomEE EAP 7.0.8-TT.2
 
