@@ -1,4 +1,9 @@
-= TomEE EAP 7.1.3-TT.2
+= TomEE EAP 7.1.3-TT.4
+
+=== Changes in TomEE EAP 7.1.3-TT.4
+
+* Update to ActiveMQ 5.15.12, and prevent the embedded ActiveMQ broker from creating a connector.
+* Update to Tomcat 8.5.55
 
 === Changes in TomEE EAP 7.1.3-TT.2
 
