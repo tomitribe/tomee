@@ -1,6 +1,14 @@
-= TomEE EAP 7.0.1-SP.5
+= TomEE EAP 7.0.1-SP.8
 
 == Change log
+
+=== Changes in TomEE EAP 7.0.1-SP.8
+
+Set createConnector to false for embedded broker
+
+=== Changes in TomEE EAP 7.0.1-SP.7
+
+Update Tomcat to mitigate CVE-2020-1938 & CVE-2020-1935 & CVE-2019-17569
 
 === Changes in TomEE EAP 7.0.1-SP.5
 
