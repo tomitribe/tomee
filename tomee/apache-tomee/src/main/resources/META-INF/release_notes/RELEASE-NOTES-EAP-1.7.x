@@ -1,6 +1,14 @@
-= TomEE EAP 1.7.4-SP.10
+= TomEE EAP 1.7.4-SP.12
 
 == Change log
+
+=== Changes in TomEE EAP 1.7.4-SP.12
+
+Do not start a management connector for the Embedded ActiveMQ broker
+
+=== Changes in TomEE EAP 1.7.4-SP.11
+
+Update Tomcat to mitigate CVE-2020-1938 & CVE-2020-1935 & CVE-2019-17569
 
 === Changes in TomEE EAP 1.7.4-SP.10
 
