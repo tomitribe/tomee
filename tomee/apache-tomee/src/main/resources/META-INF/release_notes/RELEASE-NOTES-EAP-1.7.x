@@ -1,8 +1,16 @@
-= TomEE EAP 1.7.6-TT.16
+= TomEE EAP 1.7.6-TT.19
 
 == Change log
 
-=== Changes in TomEE EAP 1.7.6-TT.16
+=== Changes in TomEE EAP 1.7.6-TT.19
+
+Set createConnector to false when using the embedded ActiveMQ broker
+
+=== Changes in TomEE EAP 1.7.6-TT.18
+
+Upgrade CXF to mitigate CVE-2020-1954
+
+=== Changes in TomEE EAP 1.7.6-TT.17
 
 * Update Tomcat to 7.0.99 to mitigate CVE-2019-12418 & CVE-2019-17563
 
