@@ -1,6 +1,10 @@
-= TomEE EAP 1.7.4-SP.12
+= TomEE EAP 1.7.4-SP.13
 
 == Change log
+
+=== Changes in TomEE EAP 1.7.4-SP.13
+
+* Update Tomcat to mitigate CVE-2020-9484
 
 === Changes in TomEE EAP 1.7.4-SP.12
 
