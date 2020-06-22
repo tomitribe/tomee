@@ -1,6 +1,10 @@
-= TomEE EAP 1.7.6-TT.19
+= TomEE EAP 1.7.6-TT.20
 
 == Change log
+
+=== Changes in TomEE EAP 1.7.6-TT.20
+
+* Update Tomcat to 7.0.104 to mitigate CVE-2020-9484
 
 === Changes in TomEE EAP 1.7.6-TT.19
 
