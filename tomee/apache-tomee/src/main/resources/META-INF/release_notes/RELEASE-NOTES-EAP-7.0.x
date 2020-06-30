@@ -1,4 +1,8 @@
-= TomEE EAP 7.0.8-TT.4
+= TomEE EAP 7.0.8-TT.5
+
+=== Changes in TomEE EAP 7.0.8-TT.5
+
+* Update to Tomcat 8.5.56
 
 === Changes in TomEE EAP 7.0.8-TT.4
 
