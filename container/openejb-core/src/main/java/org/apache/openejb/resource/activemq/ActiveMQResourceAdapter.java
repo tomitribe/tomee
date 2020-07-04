@@ -29,6 +29,7 @@ import java.net.URISyntaxException;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Properties;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 @SuppressWarnings("UnusedDeclaration")
@@ -38,6 +39,11 @@ public class ActiveMQResourceAdapter extends org.apache.activemq.ra.ActiveMQReso
     private String useDatabaseLock;
     private String startupTimeout = "60000";
     private BootstrapContext bootstrapContext = null;
+    private static final Map<String,String> PREVENT_CREATION_PARAMS = new HashMap<String, String>() { {
+        put("create", "false");
+    }};
+
+    private static final Logger LOGGER = Logger.getInstance(LogCategory.ACTIVEMQ, ActiveMQ5Factory.class);
 
     public String getDataSource() {
         return dataSource;
@@ -64,6 +70,17 @@ public class ActiveMQResourceAdapter extends org.apache.activemq.ra.ActiveMQReso
 
     @Override
     public void setServerUrl(final String url) {
+        try {
+            final URISupport.CompositeData compositeData = URISupport.parseComposite(URLs.uri(url));
+            if ("vm".equals(compositeData.getScheme())) {
+                super.setServerUrl(URISupport.addParameters(URLs.uri(url), PREVENT_CREATION_PARAMS).toString());
+                return;
+            }
+        } catch (URISyntaxException e) {
+            // if we hit an exception, we'll log this and simple pass the URL we were given to ActiveMQ.
+            LOGGER.error("Error occurred while processing ActiveMQ ServerUrl: " + url, e);
+        }
+
         super.setServerUrl(url);
     }
 
