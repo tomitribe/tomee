@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches: [ tomee-8.x-TT.x-release ]
+  pull_request:
+    branches: [ tomee-8.x-TT.x-release ]
+
+jobs:
+  build and test:
+    runs-on: ubuntu-16.04
+
+    steps:
+    - uses: actions/checkout@v2
+        
+        - name: Set up JDK 1.8
+          uses: joschi/setup-jdk@v2
+          with:
+            java-version: '8'
+
+        - name: Set up Maven 3.3.9
+          uses: stCarolas/setup-maven@v3
+          with:
+            maven-version: 3.3.9
+          run: mvn -U --show-version --fail-at-end clean install -Pall-adapters -Dsurefire.useFile=false -DdisableXmlReport=true -Dopenejb.arquillian.debug=true
