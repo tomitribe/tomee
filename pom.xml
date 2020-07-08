@@ -132,7 +132,7 @@
     <version.shrinkwrap.descriptor>2.0.0</version.shrinkwrap.descriptor>
     <version.shrinkwrap.shrinkwrap>1.2.6</version.shrinkwrap.shrinkwrap>
 
-    <tomcat.version>8.5.56</tomcat.version>
+    <tomcat.version>8.5.57</tomcat.version>
 
     <cxf.version>3.1.19-TT.4</cxf.version>
     <version.shrinkwrap.shrinkwrap>1.2.6</version.shrinkwrap.shrinkwrap>
@@ -159,7 +159,7 @@
     <commons-cli.version>1.2</commons-cli.version>
     <commons-logging.version>1.2</commons-logging.version>
     <commons-logging-api.version>1.1</commons-logging-api.version>
-    <commons-dbcp.version>2.1</commons-dbcp.version>
+    <commons-dbcp.version>2.1-TT.0</commons-dbcp.version>
     <commons-pool.version>2.3</commons-pool.version>
     <commons-collections.version>3.2.2</commons-collections.version>
     <commons-codec.version>1.10-TT.1</commons-codec.version>
