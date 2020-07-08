@@ -131,12 +131,7 @@
     <version.shrinkwrap.descriptor>2.0.0</version.shrinkwrap.descriptor>
     <version.shrinkwrap.shrinkwrap>1.2.6</version.shrinkwrap.shrinkwrap>
 
-<<<<<<< HEAD
     <tomcat.version>8.5.57</tomcat.version>
-=======
-    <tomcat.version>8.5.56</tomcat.version>
->>>>>>> tomitribe/tomee-7.0.x-TT.x-release
-
     <cxf.version>3.1.19-TT.4</cxf.version>
     <version.shrinkwrap.shrinkwrap>1.2.6</version.shrinkwrap.shrinkwrap>
     <version.shrinkwrap.descriptor>2.0.0</version.shrinkwrap.descriptor>
