@@ -4,7 +4,9 @@
 
 === Changes in TomEE EAP 1.7.6-TT.20
 
-* Update Tomcat to 7.0.104 to mitigate CVE-2020-9484
+* Update Tomcat to 7.0.105 to mitigate CVE-2020-9484
+* Update commons-codec to mitigate Sonatype-2012-0050
+* Prevent ActiveMQ VM transport creating a JMX connector
 
 === Changes in TomEE EAP 1.7.6-TT.19
 
