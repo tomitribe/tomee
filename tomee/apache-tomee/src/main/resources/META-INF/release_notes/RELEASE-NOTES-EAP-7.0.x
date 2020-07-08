@@ -2,7 +2,9 @@
 
 === Changes in TomEE EAP 7.0.8-TT.5
 
-* Update to Tomcat 8.5.56
+* Update to Tomcat 8.5.57
+* Update Commons-codec to 1.10-TT.2
+* Update DBCP2 to 2.1-TT.0
 
 === Changes in TomEE EAP 7.0.8-TT.4
 
