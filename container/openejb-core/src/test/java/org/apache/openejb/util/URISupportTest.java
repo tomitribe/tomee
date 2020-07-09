@@ -52,7 +52,7 @@ public class URISupportTest extends TestCase {
     }
 
     public void testAddNewParameters() throws Exception {
-        final Map<String, String> parameters = new HashMap<>();
+        final Map<String, String> parameters = new HashMap<String, String>();
         parameters.put("create", "false");
 
         final URI uri = URISupport.addParameters(URLs.uri("vm://broker"), parameters);
@@ -60,7 +60,7 @@ public class URISupportTest extends TestCase {
     }
 
     public void testDoNotReplaceAnExistingParameters() throws Exception {
-        final Map<String, String> parameters = new HashMap<>();
+        final Map<String, String> parameters = new HashMap<String, String>();
         parameters.put("create", "false");
 
         final URI uri = URISupport.addParameters(URLs.uri("vm://broker?create=true"), parameters);
@@ -68,7 +68,7 @@ public class URISupportTest extends TestCase {
     }
 
     public void testAddToSetOfAlreadyExistingParameters() throws Exception {
-        final Map<String, String> parameters = new HashMap<>();
+        final Map<String, String> parameters = new HashMap<String, String>();
         parameters.put("create", "false");
 
         final URI uri = URISupport.addParameters(URLs.uri("vm://broker?foo=bar&boo=baz&welcome=helloworld"), parameters);
@@ -82,7 +82,7 @@ public class URISupportTest extends TestCase {
     }
 
     public void testAddToSetOfAlreadyExistingParametersButDontOverwriteExistingParameter() throws Exception {
-        final Map<String, String> parameters = new HashMap<>();
+        final Map<String, String> parameters = new HashMap<String, String>();
         parameters.put("create", "false");
 
         final URI uri = URISupport.addParameters(URLs.uri("vm://broker?foo=bar&boo=baz&welcome=helloworld&create=true"), parameters);
