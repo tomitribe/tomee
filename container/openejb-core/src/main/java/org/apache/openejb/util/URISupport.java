@@ -371,7 +371,7 @@ public class URISupport {
             return uri;
         }
 
-        final Map<String, String> parameters = new HashMap<>(parseParamters(uri));
+        final Map<String, String> parameters = new HashMap<String, String>(parseParamters(uri));
 
         final Set<String> keys = newParameters.keySet();
         for (final String key : keys) {
