@@ -33,7 +33,6 @@ import javax.jms.ConnectionFactory;
 import javax.jms.JMSException;
 import java.util.Properties;
 
-@SimpleLog
 @RunWith(ApplicationComposer.class)
 public class ServerUrlTest {
 
