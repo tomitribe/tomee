@@ -19,6 +19,7 @@ package org.apache.openejb.resource.activemq;
 import org.apache.activemq.broker.BrokerService;
 import org.apache.openejb.util.Duration;
 import org.apache.openejb.util.LogCategory;
+import org.apache.openejb.util.Logger;
 import org.apache.openejb.util.URISupport;
 import org.apache.openejb.util.URLs;
 
