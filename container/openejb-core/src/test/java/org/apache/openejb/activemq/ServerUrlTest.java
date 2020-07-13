@@ -20,7 +20,6 @@ import org.apache.openejb.jee.StatelessBean;
 import org.apache.openejb.junit.ApplicationComposer;
 import org.apache.openejb.testing.Configuration;
 import org.apache.openejb.testing.Module;
-import org.apache.openejb.testing.SimpleLog;
 import org.apache.openejb.testng.PropertiesBuilder;
 import org.junit.Assert;
 import org.junit.Test;
