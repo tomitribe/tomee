@@ -1,6 +1,10 @@
-= TomEE EAP 1.7.4-SP.13
+= TomEE EAP 1.7.4-SP.14
 
 == Change log
+
+=== Changes in TomEE EAP 1.7.4-SP.14
+
+* Update commons-io to mitigate sonatype-2018-0705
 
 === Changes in TomEE EAP 1.7.4-SP.13
 
