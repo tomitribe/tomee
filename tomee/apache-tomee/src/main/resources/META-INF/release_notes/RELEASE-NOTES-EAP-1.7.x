@@ -1,6 +1,9 @@
-= TomEE EAP 1.7.6-TT.20
+= TomEE EAP 1.7.6-TT.21
 
 == Change log
+
+=== Changes in TomEE EAP 1.7.6-TT.21
+* Update commons-io to 2.7 in order to mitigate sonatype-2018-0705
 
 === Changes in TomEE EAP 1.7.6-TT.20
 
