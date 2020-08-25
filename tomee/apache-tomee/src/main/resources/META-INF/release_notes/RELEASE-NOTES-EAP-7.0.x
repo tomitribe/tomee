@@ -1,4 +1,13 @@
-= TomEE EAP 7.1.3-TT.4
+= TomEE EAP 7.1.3-TT.6
+
+=== Changes in TomEE EAP 7.1.3-TT.6
+
+* Update commons-io to 2.7 in order to mitigate sonatype-2018-0705
+
+=== Changes in TomEE EAP 7.1.3-TT.5
+
+* Update to ActiveMQ 5.15.13
+* Updated commons-codec to 1.10-TT.2
 
 === Changes in TomEE EAP 7.1.3-TT.4
 
