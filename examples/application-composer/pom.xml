@@ -22,7 +22,7 @@
   <groupId>org.superbiz</groupId>
   <artifactId>application-composer</artifactId>
   <packaging>jar</packaging>
-  <version>7.1.3-TT.5</version>
+  <version>7.1.3-TT.6</version>
   <name>OpenEJB :: Examples :: Application Composer</name>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -73,7 +73,7 @@
     <dependency>
       <groupId>org.apache.tomee</groupId>
       <artifactId>openejb-core</artifactId>
-      <version>7.1.3-TT.5</version>
+      <version>7.1.3-TT.6</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
