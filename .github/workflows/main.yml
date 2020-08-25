@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - tomee-1.7.4-TT.x
-  pull_request:
+  pull_request_target:
     branches:
       - tomee-1.7.4-TT.x
   workflow_dispatch:
