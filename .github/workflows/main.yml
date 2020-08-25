@@ -25,7 +25,7 @@ jobs:
           server-password: MAVEN_PASSWORD
 
       - name: maven-settings-xml-action
-        uses: whelk-io/maven-settings-xml-action@v11
+        uses: whelk-io/maven-settings-xml-action@v9
         with:
           repositories: '[{ "id": "tomitribe-all", "url": "https://repository.tomitribe.com/content/groups/tomitribe/", "releases": { "enabled": "true" } }]'
           plugin_repositories: '[{ "id": "tomitribe-all", "url": "https://repository.tomitribe.com/content/groups/tomitribe/", "releases": { "enabled": "true" }, "snapshots": { "enabled": "true" }  }]'
