@@ -519,6 +519,7 @@
         <module>arquillian</module>
         <module>utils</module>
         <module>tomee</module>
+        <module>boms</module>
       </modules>
       <repositories>
         <repository>
@@ -555,6 +556,7 @@
         <module>arquillian</module>
         <module>utils</module>
         <module>tomee</module>
+        <module>boms</module>
       </modules>
     </profile>
     <profile>
@@ -717,6 +719,7 @@
         <module>assembly</module>
         <module>utils</module>
         <module>tomee</module>
+        <module>boms</module>
       </modules>
       <build>
         <plugins>
