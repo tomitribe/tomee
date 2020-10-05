@@ -1,4 +1,8 @@
-= TomEE EAP 7.1.3-TT.6
+= TomEE EAP 7.1.4-TT.1
+
+=== Changes in TomEE EAP 7.1.3-TT.6
+
+Update ActiveMQ to mitigate CVE-2020-11998 and CVE-2020-11998
 
 === Changes in TomEE EAP 7.1.3-TT.6
 
