@@ -1,6 +1,10 @@
-= TomEE EAP 1.7.4-SP.14
+= TomEE EAP 1.7.4-SP.15
 
 == Change log
+
+=== Changes in TomEE EAP 1.7.4-SP.15
+
+Update ActiveMQ to mitigate CVE-2020-11998 and CVE-2020-11998
 
 === Changes in TomEE EAP 1.7.4-SP.14
 
