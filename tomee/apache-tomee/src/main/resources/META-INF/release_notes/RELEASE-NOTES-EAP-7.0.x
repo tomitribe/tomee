@@ -1,4 +1,8 @@
-= TomEE EAP 7.0.8-TT.6
+= TomEE EAP 7.0.8-TT.7
+
+=== Changes in TomEE EAP 7.0.8-TT.7
+* Update to Tomcat 9.0.39 to mitigate CVE-2020-13943
+* Update to cryptacular 1.1.4 to mitigate CVE-2020-7226
 
 === Changes in TomEE EAP 7.0.8-TT.6
 
