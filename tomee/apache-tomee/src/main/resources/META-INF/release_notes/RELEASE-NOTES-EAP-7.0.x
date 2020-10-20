@@ -1,8 +1,13 @@
-= TomEE EAP 7.1.4-TT.1
+= TomEE EAP 7.1.4-TT.2
 
-=== Changes in TomEE EAP 7.1.3-TT.6
+=== Changes in TomEE EAP 7.1.4-TT.2
 
-Update ActiveMQ to mitigate CVE-2020-11998 and CVE-2020-11998
+* Update to Tomcat 8.5.59 to mitigate CVE-2020-13943
+* Update to cryptacular 1.1.4 to mitigate CVE-2020-7226
+
+=== Changes in TomEE EAP 7.1.4-TT.1
+
+* Update ActiveMQ to mitigate CVE-2020-11998 and CVE-2020-11998
 
 === Changes in TomEE EAP 7.1.3-TT.6
 
