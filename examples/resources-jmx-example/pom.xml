@@ -22,11 +22,11 @@
   <groupId>org.superbiz</groupId>
   <artifactId>resources-jmx</artifactId>
   <packaging>pom</packaging>
-  <version>7.1.4-TT.1</version>
+  <version>7.1.4-TT.2</version>
   <name>OpenEJB :: Examples :: Resources/JMX Example</name>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <tomee.version>7.1.4-TT.1</tomee.version>
+    <tomee.version>7.1.4-TT.2</tomee.version>
   </properties>
   <modules>
     <module>resources-jmx-ejb</module>
