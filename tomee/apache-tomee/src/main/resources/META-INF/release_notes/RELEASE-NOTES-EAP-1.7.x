@@ -3,7 +3,7 @@
 == Change log
 
 === Changes in TomEE EAP 1.7.6-TT.22
-* Update cxf to 2.6.17-TT.8 in order to mitigate CVE-2020-13954 
+* Update cxf to 2.6.17-TT.8 in order to mitigate CVE-2020-13954
 
 === Changes in TomEE EAP 1.7.6-TT.21
 * Update commons-io to 2.7 in order to mitigate sonatype-2018-0705
