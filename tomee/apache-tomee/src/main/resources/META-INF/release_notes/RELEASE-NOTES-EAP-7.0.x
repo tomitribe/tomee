@@ -1,4 +1,8 @@
-= TomEE EAP 7.0.8-TT.7
+= TomEE EAP 7.0.10-TT.1
+
+=== Changes in TomEE EAP 7.0.10-TT.1
+* Update to CXF 3.1.19-TT.5 to mitigate CVE-2020-13954
+* Update to bcprov-jdk15on 1.67 to mitigate CVE-2020-0187 and sonatype-2020-0770
 
 === Changes in TomEE EAP 7.0.8-TT.7
 * Update to Tomcat 8.5.59 to mitigate CVE-2020-13943

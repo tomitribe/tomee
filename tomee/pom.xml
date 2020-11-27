@@ -25,7 +25,7 @@
   <parent>
     <artifactId>tomee-project</artifactId>
     <groupId>org.apache.tomee</groupId>
-    <version>7.0.8-TT.7</version>
+    <version>7.0.10-TT.1-SNAPSHOT</version>
   </parent>
   
   <artifactId>tomee</artifactId>
@@ -50,6 +50,7 @@
     <module>tomee-util</module>
     <module>tomee-juli</module>
     <module>tomee-overlay-runner</module>
+    <module>tomee-bootstrap</module>
     <!--<module>tomee-deb</module>-->
   </modules>
 

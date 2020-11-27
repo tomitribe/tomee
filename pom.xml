@@ -33,7 +33,7 @@
   <groupId>org.apache.tomee</groupId>
   <artifactId>tomee-project</artifactId>
   <packaging>pom</packaging>
-  <version>7.0.8-TT.7</version>
+  <version>7.0.10-TT.1-SNAPSHOT</version>
 
   <name>Apache OpenEJB</name>
   <description>Apache OpenEJB is an open source, modular, configurable and extensible EJB Container System and EJB Server.</description>
@@ -93,7 +93,7 @@
 
   <properties>
 
-    <tomee.version>7.0.8-TT.7</tomee.version>
+    <tomee.version>7.0.10-TT.1-SNAPSHOT</tomee.version>
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
 
@@ -132,7 +132,7 @@
     <version.shrinkwrap.shrinkwrap>1.2.6</version.shrinkwrap.shrinkwrap>
 
     <tomcat.version>8.5.59</tomcat.version>
-    <cxf.version>3.1.19-TT.4</cxf.version>
+    <cxf.version>3.1.19-TT.5</cxf.version>
     <version.shrinkwrap.shrinkwrap>1.2.6</version.shrinkwrap.shrinkwrap>
     <version.shrinkwrap.descriptor>2.0.0</version.shrinkwrap.descriptor>
     <version.arquillian>1.1.13.Final</version.arquillian>
@@ -519,6 +519,7 @@
         <module>arquillian</module>
         <module>utils</module>
         <module>tomee</module>
+        <module>boms</module>
       </modules>
       <repositories>
         <repository>
@@ -555,6 +556,7 @@
         <module>arquillian</module>
         <module>utils</module>
         <module>tomee</module>
+        <module>boms</module>
       </modules>
     </profile>
     <profile>
@@ -717,6 +719,7 @@
         <module>assembly</module>
         <module>utils</module>
         <module>tomee</module>
+        <module>boms</module>
       </modules>
       <build>
         <plugins>
