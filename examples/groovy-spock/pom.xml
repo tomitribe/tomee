@@ -21,7 +21,7 @@
   <groupId>org.superbiz</groupId>
   <artifactId>groovy-spock</artifactId>
   <packaging>jar</packaging>
-  <version>7.0.10-TT.1-SNAPSHOT</version>
+  <version>7.0.10-TT.1</version>
   <name>OpenEJB :: Examples :: Groovy Spock</name>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -69,7 +69,7 @@
       <id>apache-m2-snapshot</id>
       <name>Apache Snapshot Repository</name>
       <url>https://repository.apache.org/content/groups/snapshots</url>
-      <snapshots/>
+      <snapshots />
     </repository>
     <repository>
       <id>tomitribe-all</id>
@@ -108,7 +108,7 @@
     <dependency>
       <groupId>org.apache.tomee</groupId>
       <artifactId>arquillian-openejb-embedded</artifactId>
-      <version>7.0.10-TT.1-SNAPSHOT</version>
+      <version>7.0.10-TT.1</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -120,7 +120,7 @@
     <dependency>
       <groupId>org.apache.tomee</groupId>
       <artifactId>ziplock</artifactId>
-      <version>7.0.10-TT.1-SNAPSHOT</version>
+      <version>7.0.10-TT.1</version>
       <scope>test</scope>
     </dependency>
     <dependency>
