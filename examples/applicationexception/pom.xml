@@ -22,7 +22,7 @@
   <groupId>org.superbiz</groupId>
   <artifactId>applicationexception</artifactId>
   <packaging>jar</packaging>
-  <version>7.1.4-TT.2</version>
+  <version>7.1.5-TT.1</version>
   <name>OpenEJB :: Examples :: @ApplicationException inheritance</name>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -83,7 +83,7 @@
     <dependency>
       <groupId>org.apache.tomee</groupId>
       <artifactId>openejb-core</artifactId>
-      <version>7.1.4-TT.2</version>
+      <version>7.1.5-TT.1</version>
       <scope>test</scope>
     </dependency>
   </dependencies>

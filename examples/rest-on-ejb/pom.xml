@@ -22,11 +22,11 @@
   <groupId>org.superbiz</groupId>
   <artifactId>rest-on-ejb</artifactId>
   <packaging>jar</packaging>
-  <version>7.1.4-TT.2</version>
+  <version>7.1.5-TT.1</version>
   <name>OpenEJB :: Examples :: REST and EJB</name>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <tomee.version>7.1.4-TT.2</tomee.version>
+    <tomee.version>7.1.5-TT.1</tomee.version>
   </properties>
   <build>
     <defaultGoal>install</defaultGoal>
@@ -82,7 +82,7 @@
     <dependency>
       <groupId>org.apache.tomee</groupId>
       <artifactId>openejb-cxf-rs</artifactId>
-      <version>7.1.4-TT.2</version>
+      <version>7.1.5-TT.1</version>
       <scope>test</scope>
     </dependency>
     <dependency>
