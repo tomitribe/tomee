@@ -29,7 +29,7 @@
   </parent>
 
   <artifactId>openejb-itests-web</artifactId>
-  <version>7.1.6-TT.2-SNAPSHOT</version>
+  <version>7.1.5-TT-3-SNAPSHOT</version>
   <packaging>war</packaging>
   <name>OpenEJB :: iTests :: Web</name>
 

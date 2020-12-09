@@ -27,7 +27,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.apache.openejb.itests</groupId>
   <artifactId>legacy-client</artifactId>
-  <version>7.1.6-TT.2-SNAPSHOT</version>
+  <version>7.1.5-TT-3-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>OpenEJB :: iTests :: Legacy Client</name>
 
