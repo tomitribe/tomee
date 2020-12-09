@@ -25,7 +25,7 @@
   <name>OpenEJB :: Web Examples :: REST Example</name>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <tomee.version>7.1.5-TT.2-SNAPSHOT</tomee.version>
+    <tomee.version>7.1.5-TT.2</tomee.version>
     <version.openjpa>2.4.0</version.openjpa>
   </properties>
   <repositories>
@@ -78,7 +78,7 @@
         <version>7.1.5-TT.2</version>
         <configuration>
           <simpleLog>true</simpleLog>
-          <tomeeVersion>7.1.5-TT.2-SNAPSHOT</tomeeVersion>
+          <tomeeVersion>7.1.5-TT.2</tomeeVersion>
           <tomeeClassifier>plus</tomeeClassifier>
         </configuration>
       </plugin>
