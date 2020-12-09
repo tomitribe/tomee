@@ -22,10 +22,11 @@
   <parent>
     <artifactId>itests</artifactId>
     <groupId>org.apache.tomee</groupId>
-    <version>7.1.5-TT.2</version>
+    <version>7.1.5-TT.3-SNAPSHOT</version>
   </parent>
 
   <artifactId>openejb-itests-servlets</artifactId>
+  <version>7.1.6-TT.2-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>OpenEJB :: iTests :: Servlets</name>
 
@@ -38,7 +39,7 @@
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>openejb-itests-beans</artifactId>
-      <version>${project.version}</version>
+      <version>7.1.5-TT.3-SNAPSHOT</version>
       <type>ejb</type>
       <scope>provided</scope>
     </dependency>

@@ -26,10 +26,11 @@
   <parent>
     <artifactId>container</artifactId>
     <groupId>org.apache.tomee</groupId>
-    <version>7.1.5-TT.2</version>
+    <version>7.1.5-TT.3-SNAPSHOT</version>
   </parent>
 
   <artifactId>openejb-core</artifactId>
+  <version>7.1.6-TT.2-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>OpenEJB :: Container :: Core</name>
 
@@ -425,12 +426,12 @@
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>mbean-annotation-api</artifactId>
-      <version>${project.version}</version>
+      <version>7.1.5-TT.3-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>openejb-jpa-integration</artifactId>
-      <version>${project.version}</version>
+      <version>7.1.5-TT.3-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>${project.groupId}</groupId>
@@ -455,27 +456,27 @@
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>openejb-api</artifactId>
-      <version>${project.version}</version>
+      <version>7.1.5-TT.3-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>openejb-loader</artifactId>
-      <version>${project.version}</version>
+      <version>7.1.5-TT.3-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>openejb-javaagent</artifactId>
-      <version>${project.version}</version>
+      <version>7.1.5-TT.3-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>openejb-jee</artifactId>
-      <version>${project.version}</version>
+      <version>7.1.5-TT.3-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>openejb-jee-accessors</artifactId>
-      <version>${project.version}</version>
+      <version>7.1.5-TT.3-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>${project.groupId}</groupId>
@@ -492,7 +493,7 @@
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>openejb-itests-beans</artifactId>
-      <version>${project.version}</version>
+      <version>7.1.5-TT.3-SNAPSHOT</version>
       <scope>test</scope>
     </dependency>
     <dependency>
