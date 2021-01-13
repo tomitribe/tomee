@@ -28,7 +28,7 @@
 
   <groupId>org.apache.openejb.itests</groupId>
   <artifactId>legacy-server</artifactId>
-  <version>7.1.5-TT-3-SNAPSHOT</version>
+  <version>7.1.5-TT.3-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>OpenEJB :: iTests :: Legacy Server</name>
 

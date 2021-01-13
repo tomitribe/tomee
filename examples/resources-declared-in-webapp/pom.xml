@@ -21,11 +21,11 @@
   <groupId>org.superbiz</groupId>
   <artifactId>resources-declared-in-webapp</artifactId>
   <packaging>war</packaging>
-  <version>7.1.5-TT-3-SNAPSHOT</version>
+  <version>7.1.5-TT.3-SNAPSHOT</version>
   <name>OpenEJB :: Web Examples :: Resource Declared In A Webapp</name>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <tomee.version>7.1.5-TT.2-SNAPSHOT</tomee.version>
+    <tomee.version>7.1.5-TT.3-SNAPSHOT</tomee.version>
   </properties>
   <repositories>
     <repository>
@@ -82,7 +82,7 @@
             <webappArtifact>
               <groupId>org.apache.tomee</groupId>
               <artifactId>openejb-tomcat-plus-webapp</artifactId>
-              <version>7.1.5-TT.2-SNAPSHOT</version>
+              <version>7.1.5-TT.3-SNAPSHOT</version>
               <contextPath>openejb</contextPath>
             </webappArtifact>
           </webapps>
