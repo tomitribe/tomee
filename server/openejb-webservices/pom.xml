@@ -23,7 +23,7 @@
   <parent>
     <artifactId>server</artifactId>
     <groupId>org.apache.tomee</groupId>
-    <version>7.1.5-TT-3-SNAPSHOT</version>
+    <version>7.1.5-TT.3</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <artifactId>openejb-webservices</artifactId>
@@ -40,7 +40,7 @@
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>openejb-loader</artifactId>
-      <version>7.1.5-TT.3-SNAPSHOT</version>
+      <version>7.1.5-TT.3</version>
     </dependency>
     <dependency>
       <groupId>${project.groupId}</groupId>

@@ -1,4 +1,11 @@
-= TomEE EAP 7.1.5-TT.1
+= TomEE EAP 7.1.5-TT.3
+
+=== Changes in TomEE EAP 7.1.5-TT.3
+* Update to Tomcat 8.5.61
+* Updated jackson  2.12.0 to mitagate CVE-2020-25649
+
+=== Changes in TomEE EAP 7.1.5-TT.2
+* Update Tomcat to mitigate CVE-2020-17527
 
 === Changes in TomEE EAP 7.1.5-TT.1
 
