@@ -14,34 +14,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Set up JDK 1.8
-        uses: actions/setup-java@v1
-        with:
-          java-version: '8'
-          server-id: tomitribe-all
-          server-username: MAVEN_USERNAME
-          server-password: MAVEN_PASSWORD
+    - uses: actions/checkout@v2
 
-      - name: Create tmp dirs
-        run: mkdir -p /tmp/tomee-trunk-ubuntu-jvm8
+    - name: Set up JDK 1.8
+      uses: joschi/setup-jdk@v2
+      with:
+        java-version: '8'
+        server-id: tomitribe-all
+        server-username: MAVEN_USERNAME
+        server-password: MAVEN_PASSWORD
 
-      - name: Cache Maven packages
-        uses: actions/cache@v2
-        with:
-          path: ~/.m2
-          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-          restore-keys: ${{ runner.os }}-m2
+    - name: maven-settings-xml-action
+      uses: whelk-io/maven-settings-xml-action@v9
+      with:
+        repositories: '[{ "id": "tomitribe-all", "url": "https://repository.tomitribe.com/content/groups/tomitribe/", "releases": { "enabled": "true" } }]'
+        plugin_repositories: '[{ "id": "tomitribe-all", "url": "https://repository.tomitribe.com/content/groups/tomitribe/", "releases": { "enabled": "true" }, "snapshots": { "enabled": "true" }  }]'
+        servers: '[{ "id": "tomitribe-all", "username": "${{secrets.MAVEN_USERNAME}}", "password": "${{secrets.MAVEN_PASSWORD}}" }]'
 
-      - name: maven-settings-xml-action
-        run: echo "<settings xmlns=\"http://maven.apache.org/SETTINGS/1.0.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd\"> <activeProfiles> <activeProfile>github</activeProfile> </activeProfiles> <profiles> <profile> <id>github</id> <repositories> <repository> <id>central-repo</id> <url>https://repository.tomitribe.com/content/groups/tomitribe/</url> <releases> <enabled>true</enabled> </releases> <snapshots> <enabled>false</enabled> </snapshots> </repository> </repositories> <pluginRepositories> <pluginRepository> <id>central-plugin-repository</id> <url>https://repository.tomitribe.com/content/groups/tomitribe/</url> <releases> <enabled>true</enabled> </releases> <snapshots> <enabled>false</enabled> </snapshots> </pluginRepository> </pluginRepositories> </profile> </profiles><servers>   <server>      <id>github</id>     <username>\${env.MAVEN_USERNAME}</username>    <password>\${env.MAVEN_PASSWORD}</password>   </server>    <server>     <id>tomitribe-all</id>    <username>\${env.MAVEN_USERNAME}</username>       <password>\${env.MAVEN_PASSWORD}</password>     </server>    </servers> <mirrors/> <pluginGroups/> </settings>" > ~/.m2/settings.xml
-
-
-      - name: Compile
-        env:
-          MAVEN_OPTS: -Xmx2048m
-          MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
-          MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
-        run: mvn help:system -U --show-version --fail-at-end -Djava.io.tmpdir=/tmp/tomee-trunk-ubuntu-jvm8 clean install -DfailIfNoTests=false -DskipTests
-
-
+    - name: Build with Maven
+      run: mvn --show-version -U --fail-at-end clean install -DfailIfNoTests=false -DskipTests
