@@ -30,7 +30,7 @@ jobs:
 
 
     - name: maven-settings-xml-action
-      run: echo ~/.m2/settings.xml
+      run: cat ~/.m2/settings.xml
 
     - name: Build with Maven
       run: mvn --show-version -U --fail-at-end clean install -DfailIfNoTests=false -DskipTests
