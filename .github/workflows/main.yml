@@ -20,9 +20,17 @@ jobs:
       uses: actions/setup-java@v1
       with: # running setup-java again overwrites the settings.xml
         java-version: 1.8
-        server-id: maven # Value of the distributionManagement/repository/id field of the pom.xml
-        server-username: MAVEN_USERNAME # env variable for username in deploy
-        server-password: MAVEN_PASSWORD # env variable for token in deploy
+
+    - name: maven-settings-xml-action
+      uses: whelk-io/maven-settings-xml-action@v14
+      with:
+        repositories: '[{ "id": "tomitribe-all", "name": "tomitribe-all", "url": "https://repository.tomitribe.com/content/groups/tomitribe/", "releases": { "enabled": "true" }, "snapshots": { "enabled": "false" } }]'
+        plugin_repositories: '[{ "id": "tomitribe-all", "name": "tomitribe-all", "url": "https://repository.tomitribe.com/content/groups/tomitribe/", "releases": { "enabled": "true" }, "snapshots": { "enabled": "false" }}]'
+        servers: '[{ "id": "tomitribe-all", "username": "\${env.MAVEN_USERNAME}", "password": "\${env.MAVEN_USERNAME}" }]'
+
+
+    - name: maven-settings-xml-action
+      run: echo ~/.m2/settings.xml
 
     - name: Build with Maven
       run: mvn --show-version -U --fail-at-end clean install -DfailIfNoTests=false -DskipTests
