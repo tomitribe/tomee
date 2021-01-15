@@ -19,6 +19,7 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: '8'
+          server-id: tomitribe-all
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
 
