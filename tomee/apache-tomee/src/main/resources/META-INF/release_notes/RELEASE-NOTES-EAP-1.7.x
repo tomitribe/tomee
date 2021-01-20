@@ -1,6 +1,9 @@
-= TomEE EAP 1.7.6-TT.22
+= TomEE EAP 1.7.6-TT.23
 
 == Change log
+
+=== Changes in TomEE EAP 1.7.6-TT.23
+* Update Tomcat to 7.0.107 in order to mitigate CVE-2021-24122
 
 === Changes in TomEE EAP 1.7.6-TT.22
 * Update cxf to 2.6.17-TT.8 in order to mitigate CVE-2020-13954
