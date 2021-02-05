@@ -1,6 +1,11 @@
-= TomEE EAP 1.7.4-SP.15
+= TomEE EAP 1.7.4-SP.16
 
 == Change log
+
+=== Changes in TomEE EAP 1.7.4-SP.16
+
+Update to Tomcat 7.0.68-TT.10 to mitigate CVE-2021-24122
+
 
 === Changes in TomEE EAP 1.7.4-SP.15
 
