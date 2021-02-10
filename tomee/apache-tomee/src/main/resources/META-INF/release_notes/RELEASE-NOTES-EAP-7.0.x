@@ -1,4 +1,8 @@
-= TomEE EAP 7.1.5-TT.3
+= TomEE EAP 7.1.5-TT.4
+
+=== Changes in TomEE EAP 7.1.5-TT.4
+* Update ActiveMQ to 5.16.1 to mitigate CVE-2021-26117
+* Updated commons-dbcp to 2.1-TT.1 to mitigate sonatype-2020-1349
 
 === Changes in TomEE EAP 7.1.5-TT.3
 * Update to Tomcat 8.5.61
