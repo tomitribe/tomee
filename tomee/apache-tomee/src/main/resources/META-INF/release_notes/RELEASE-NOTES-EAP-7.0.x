@@ -1,4 +1,12 @@
-= TomEE EAP 7.0.10-TT.1
+= TomEE EAP 7.0.10-TT.3
+
+=== Changes in TomEE EAP 7.0.10-TT.3
+* Updated Tomcat to 8.5.63
+* Updated ActiveMQ to 5.15.6-TT.2 to mitigate CVE-2021-26117
+* Updated commons-dbcp to 2.1-TT.1 to mitigate sonatype-2020-1349
+
+=== Changes in TomEE EAP 7.0.10-TT.2
+* Update to Tomcat 8.5.60
 
 === Changes in TomEE EAP 7.0.10-TT.1
 * Update to CXF 3.1.19-TT.5 to mitigate CVE-2020-13954
