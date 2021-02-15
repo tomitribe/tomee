@@ -31,7 +31,7 @@
   <parent>
     <groupId>org.apache.tomee.bom</groupId>
     <artifactId>boms</artifactId>
-    <version>7.0.10-TT.3</version>
+    <version>7.0.10-TT.4-SNAPSHOT</version>
   </parent>
 
   <modelVersion>4.0.0</modelVersion>
@@ -1082,7 +1082,7 @@
     <dependency>
       <groupId>org.apache.tomee</groupId>
       <artifactId>mbean-annotation-api</artifactId>
-      <version>7.0.10-TT.3</version>
+      <version>7.0.10-TT.4-SNAPSHOT</version>
       <exclusions>
         <exclusion>
           <artifactId>*</artifactId>
