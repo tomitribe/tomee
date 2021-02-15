@@ -157,7 +157,7 @@
     <commons-cli.version>1.2</commons-cli.version>
     <commons-logging.version>1.2</commons-logging.version>
     <commons-logging-api.version>1.1</commons-logging-api.version>
-    <commons-dbcp.version>2.1-TT.0</commons-dbcp.version>
+    <commons-dbcp.version>2.1-TT.1</commons-dbcp.version>
     <commons-pool.version>2.3</commons-pool.version>
     <commons-collections.version>3.2.2</commons-collections.version>
     <commons-codec.version>1.10-TT.2</commons-codec.version>
@@ -168,7 +168,7 @@
     <commons-net.version>3.3</commons-net.version>
 
     <bval.version>1.1.2</bval.version>
-    <org.apache.activemq.version>5.15.6-TT.1</org.apache.activemq.version>
+    <org.apache.activemq.version>5.15.6-TT.2</org.apache.activemq.version>
     <org.springframework.version>3.1.4.RELEASE</org.springframework.version>
     <junit.version>4.12</junit.version>
     <org.apache.axis2.version>1.4.1</org.apache.axis2.version>
