@@ -1,6 +1,8 @@
-= TomEE EAP 1.7.6-TT.23
+= TomEE EAP 1.7.6-TT.24
 
-== Change log
+=== Changes in TomEE EAP 1.7.6-TT.24
+* Update Tomcat to 7.0.108 in order to mitigate CVE-2021-25329
+* Update MyFaces to 2.1.19-TT.2 in order to mitigate CVE-2021-26296
 
 === Changes in TomEE EAP 1.7.6-TT.23
 * Update Tomcat to 7.0.107 in order to mitigate CVE-2021-24122
