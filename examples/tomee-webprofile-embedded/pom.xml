@@ -20,14 +20,14 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.superbiz</groupId>
   <artifactId>tomee-webprofile-embedded</artifactId>
-  <version>7.0.10-TT.5</version>
+  <version>7.0.10-TT.6-SNAPSHOT</version>
 
   <name>Apache TomEE WebProfile Embedded</name>
   
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <version.javaee-api>7.0-2</version.javaee-api>
-    <version.tomee>7.0.10-TT.5</version.tomee>
+    <version.tomee>7.0.10-TT.6-SNAPSHOT</version.tomee>
   </properties>
   <dependencies>
     <dependency>
