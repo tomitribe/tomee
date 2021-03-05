@@ -1,4 +1,7 @@
-= TomEE EAP 7.0.10-TT.4
+= TomEE EAP 7.0.10-TT.5
+
+=== Changes in TomEE EAP 7.0.10-TT.5
+* Updated to bcprov-jdk15on 1.68
 
 === Changes in TomEE EAP 7.0.10-TT.4
 * Updated myfaces to 2.2.14 to mitigate CVE-2021-26296	
