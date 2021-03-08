@@ -1,6 +1,7 @@
-= TomEE EAP 1.7.4-SP.16
+= TomEE EAP 1.7.4-SP.17
 
-== Change log
+=== Changes in TomEE EAP 1.7.4-SP.17
+Update to myface 2.1.17-TT.2 to mitigate CVE-2021-26296
 
 === Changes in TomEE EAP 1.7.4-SP.16
 
