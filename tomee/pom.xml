@@ -23,17 +23,17 @@
   <parent>
     <artifactId>openejb</artifactId>
     <groupId>org.apache.openejb</groupId>
-    <version>4.7.6-TT.24</version>
+    <version>4.7.6-TT.25</version>
   </parent>
 
   <modelVersion>4.0.0</modelVersion>
   <artifactId>tomee</artifactId>
-  <version>1.7.6-TT.24</version>
+  <version>1.7.6-TT.25</version>
   <packaging>pom</packaging>
   <name>OpenEJB :: TomEE</name>
 
   <properties>
-    <version.openejb>4.7.6-TT.24</version.openejb>
+    <version.openejb>4.7.6-TT.25</version.openejb>
   </properties>
 
   <modules>
@@ -240,7 +240,7 @@
       <dependency>
         <groupId>org.apache.velocity</groupId>
         <artifactId>velocity</artifactId>
-        <version>1.6.4</version>
+        <version>1.7.1-TT.0</version>
       </dependency>
       <dependency>
         <groupId>org.apache.geronimo.specs</groupId>
@@ -394,4 +394,3 @@
   </dependencyManagement>
 
 </project>
-

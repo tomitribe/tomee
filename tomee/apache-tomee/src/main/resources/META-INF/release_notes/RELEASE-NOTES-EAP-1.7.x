@@ -1,4 +1,7 @@
-= TomEE EAP 1.7.6-TT.24
+= TomEE EAP 1.7.6-TT.25
+
+=== Changes in TomEE EAP 1.7.6-TT.25
+* Update Velocity to 1.7.1-TT.0 in order to mitigate CVE-2020-13936
 
 === Changes in TomEE EAP 1.7.6-TT.24
 * Update Tomcat to 7.0.108 in order to mitigate CVE-2021-25329
