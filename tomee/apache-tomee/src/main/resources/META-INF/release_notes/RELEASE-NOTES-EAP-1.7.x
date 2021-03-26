@@ -1,5 +1,7 @@
-= TomEE EAP 1.7.4-SP.18
+= TomEE EAP 1.7.4-SP.19
 
+=== Changes in TomEE EAP 1.7.4-SP.19
+Updated velocity to 1.7.1-TT.0 to mitigate CVE-2020-13936
 
 === Changes in TomEE EAP 1.7.4-SP.18
 Update to Tomcat 7.0.68-TT.11 to mitigate CVE-2021-25329
