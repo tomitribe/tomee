@@ -1,4 +1,8 @@
-= TomEE EAP 7.1.5-TT.5
+= TomEE EAP 7.1.5-TT.6
+
+=== Changes in TomEE EAP 7.1.5-TT.6
+* Updated to Tomcat 8.5.65
+* Upated to 3.1.19-TT.6 to mitigate CVE-2021-22696
 
 === Changes in TomEE EAP 7.1.5-TT.5
 * Updated Tomcat to 8.5.63

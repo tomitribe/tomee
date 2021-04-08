@@ -20,12 +20,12 @@
   <parent>
     <artifactId>container</artifactId>
     <groupId>org.apache.tomee</groupId>
-    <version>7.1.5-TT.5</version>
+    <version>7.1.5-TT.6</version>
   </parent>
 
   <modelVersion>4.0.0</modelVersion>
   <artifactId>openejb-junit</artifactId>
-  <version>7.1.5-TT.5</version>
+  <version>7.1.5-TT.6</version>
   <packaging>jar</packaging>
   <name>OpenEJB :: Container :: JUnit</name>
 
