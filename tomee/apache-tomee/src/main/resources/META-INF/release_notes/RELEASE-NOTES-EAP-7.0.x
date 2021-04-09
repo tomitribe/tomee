@@ -1,4 +1,8 @@
-= TomEE EAP 7.0.10-TT.5
+= TomEE EAP 7.0.10-TT.6
+
+=== Changes in TomEE EAP 7.0.10-TT.6
+* Updated tomcat to 8.5.65
+* Updated cxf to 3.1.19-TT.6 to mitigate CVE-2021-22696
 
 === Changes in TomEE EAP 7.0.10-TT.5
 * Updated to bcprov-jdk15on 1.68
