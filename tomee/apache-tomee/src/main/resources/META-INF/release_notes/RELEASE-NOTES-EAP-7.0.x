@@ -1,4 +1,10 @@
-= TomEE EAP 7.1.5-TT.6
+= TomEE EAP 7.1.5-TT.7
+
+=== Changes in TomEE EAP 7.1.5-TT.7
+* Updated javax.faces from 2.2.20 to 2.2.21-TT.1 to mitigate CVE-2020-6950
+* Updated cxf to 3.1.19-TT.7 to mitigate CVE-2021-30468
+* Updated to tomcat 8.5.68
+* Updated to ActiveMQ 5.16.2
 
 === Changes in TomEE EAP 7.1.5-TT.6
 * Updated to Tomcat 8.5.65
